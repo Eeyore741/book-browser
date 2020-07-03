@@ -11,19 +11,16 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var applicationFlowCoordinator: ApplicationFlowCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
-        let w = UIWindow(windowScene: scene)
-        self.window = w
-        let vc = UIViewController(nibName: nil, bundle: nil)
-        vc.view.backgroundColor = .red
-        self.window?.rootViewController = vc
+        self.applicationFlowCoordinator = ApplicationFlowCoordinator(window: UIWindow(windowScene: scene))
         self.window?.makeKeyAndVisible()
+        self.applicationFlowCoordinator?.startRootFlow()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
