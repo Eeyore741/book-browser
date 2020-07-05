@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.applicationFlowCoordinator = ApplicationFlowCoordinator(window: UIWindow(windowScene: scene))
         self.window?.makeKeyAndVisible()
-        self.applicationFlowCoordinator?.startRootFlow()
+        self.applicationFlowCoordinator?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

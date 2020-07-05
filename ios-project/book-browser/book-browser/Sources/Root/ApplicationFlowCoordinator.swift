@@ -26,20 +26,22 @@ final class ApplicationFlowCoordinator: FlowCoordinator {
 extension ApplicationFlowCoordinator {
     
     public func start() {
-        self.startRootFlow()
+        self.startInputFlow()
+    }
+
+    private func startInputFlow() {
+        let inputFlow = InputFlowCoordinator(parentController: self.navigationController)
+        inputFlow.onInputDone = { (text: String?) in
+            inputFlow.finish {
+                self.startBookBrowserFlow(searchString: text)
+            }
+            self.removeChildFlowCoordinator(inputFlow)
+        }
+        addChildFlowCoordinator(inputFlow)
+        inputFlow.start()
     }
     
-    public func startRootFlow() {
-        let vc = UIViewController(nibName: nil, bundle: nil)
-        vc.view.backgroundColor = UIColor.purple
-        self.navigationController.setViewControllers([vc], animated: true)
-    }
-    
-    public func startInputFlow() {
-        
-    }
-    
-    public func startBookBrowserFlow() {
+    private func startBookBrowserFlow(searchString: String? = nil) {
         
     }
 }
