@@ -10,10 +10,10 @@ import UIKit
 
 final class BasicViewController: UIViewController {
     
-    private let v: UIView
+    private let rootView: UIView
     
     init(view: UIView) {
-        self.v = view
+        self.rootView = view
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,6 +22,6 @@ final class BasicViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = self.v
+        self.view = self.rootView
     }
 }
