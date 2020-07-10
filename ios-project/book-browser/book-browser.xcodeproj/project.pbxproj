@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA13F9E724AF8EE80071FE18 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9E624AF8EE80071FE18 /* BrowserViewController.swift */; };
 		FA13F9EA24AF8F9E0071FE18 /* InputFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */; };
 		FA13F9EC24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */; };
 		FA6B87F824AF7F2B007005D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B87F724AF7F2B007005D7 /* AppDelegate.swift */; };
@@ -44,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA13F9E624AF8EE80071FE18 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA6B87F424AF7F2B007005D7 /* book-browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "book-browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */,
-				FA13F9E624AF8EE80071FE18 /* BrowserViewController.swift */,
 				FA6E247224B8F7B2009F7A91 /* BrowserView.swift */,
 				FA6E247424B8F7D3009F7A91 /* BrowserModel.swift */,
 			);
@@ -351,7 +348,6 @@
 			files = (
 				FA6B87F824AF7F2B007005D7 /* AppDelegate.swift in Sources */,
 				FA6E247524B8F7D3009F7A91 /* BrowserModel.swift in Sources */,
-				FA13F9E724AF8EE80071FE18 /* BrowserViewController.swift in Sources */,
 				FA6E246D24B23840009F7A91 /* GenericViewController.swift in Sources */,
 				FA13F9EA24AF8F9E0071FE18 /* InputFlowCoordinator.swift in Sources */,
 				FA6B87FA24AF7F2B007005D7 /* SceneDelegate.swift in Sources */,
