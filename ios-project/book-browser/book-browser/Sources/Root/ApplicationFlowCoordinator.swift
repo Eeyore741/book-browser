@@ -45,6 +45,8 @@ extension ApplicationFlowCoordinator {
     }
     
     private func startBookBrowserFlow(searchString: String? = nil) {
-        
+        let browserFlow = BrowserFlowCoordinator(parentController: self.navigationController)
+        addChildFlowCoordinator(browserFlow)
+        browserFlow.start()
     }
 }

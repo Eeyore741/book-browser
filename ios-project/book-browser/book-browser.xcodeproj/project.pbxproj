@@ -20,7 +20,7 @@
 		FA6E246F24B239A3009F7A91 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E246E24B239A3009F7A91 /* InputView.swift */; };
 		FA6E247124B24221009F7A91 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E247024B24221009F7A91 /* BasicViewController.swift */; };
 		FA6E247324B8F7B2009F7A91 /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E247224B8F7B2009F7A91 /* BrowserView.swift */; };
-		FA6E247524B8F7D3009F7A91 /* BrowserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E247424B8F7D3009F7A91 /* BrowserModel.swift */; };
+		FA6E247524B8F7D3009F7A91 /* BrowserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E247424B8F7D3009F7A91 /* BrowserViewModel.swift */; };
 		FA9311BA24AF862F0057557D /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9311B924AF862F0057557D /* FlowCoordinator.swift */; };
 		FA9311BE24AF8AFD0057557D /* ApplicationFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9311BD24AF8AFD0057557D /* ApplicationFlowCoordinator.swift */; };
 /* End PBXBuildFile section */
@@ -62,7 +62,7 @@
 		FA6E246E24B239A3009F7A91 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		FA6E247024B24221009F7A91 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		FA6E247224B8F7B2009F7A91 /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
-		FA6E247424B8F7D3009F7A91 /* BrowserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserModel.swift; sourceTree = "<group>"; };
+		FA6E247424B8F7D3009F7A91 /* BrowserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewModel.swift; sourceTree = "<group>"; };
 		FA9311B924AF862F0057557D /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		FA9311BD24AF8AFD0057557D /* ApplicationFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFlowCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */,
+				FA6E247424B8F7D3009F7A91 /* BrowserViewModel.swift */,
 				FA6E247224B8F7B2009F7A91 /* BrowserView.swift */,
-				FA6E247424B8F7D3009F7A91 /* BrowserModel.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6B87F824AF7F2B007005D7 /* AppDelegate.swift in Sources */,
-				FA6E247524B8F7D3009F7A91 /* BrowserModel.swift in Sources */,
+				FA6E247524B8F7D3009F7A91 /* BrowserViewModel.swift in Sources */,
 				FA6E246D24B23840009F7A91 /* GenericViewController.swift in Sources */,
 				FA13F9EA24AF8F9E0071FE18 /* InputFlowCoordinator.swift in Sources */,
 				FA6B87FA24AF7F2B007005D7 /* SceneDelegate.swift in Sources */,
