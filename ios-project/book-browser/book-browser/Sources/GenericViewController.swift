@@ -10,12 +10,15 @@ import UIKit
 
 final class GenericViewController<View: UIView>: UIViewController {
     
-    init() {
+    let rootView: View
+    
+    init(rootView: View) {
+        self.rootView = rootView
         super.init(nibName: nil, bundle: nil)
     }
     
     override func loadView() {
-        self.view = View(frame: CGRect.zero)
+        self.view = self.rootView
     }
     
     required init?(coder: NSCoder) {
