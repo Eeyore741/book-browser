@@ -11,6 +11,5 @@ import Foundation
 /// Protocol describing data model for browser view model
 protocol BrowserDataModel {
     
-    var query: String? { set get }
     func fetch(query: String?, completionHandler: (BrowserDataResult) -> ())
 }
