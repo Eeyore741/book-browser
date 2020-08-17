@@ -19,8 +19,11 @@ final class BrowserFlowCoordinator: FlowCoordinator {
     var onClose: ((String?) -> ())?
     var onSelection: ((String?) -> ())?
     
-    init(parentController: UINavigationController) {
+    private var query: String?
+    
+    init(parentController: UINavigationController, query: String? = nil) {
         self.parentController = parentController
+        self.query = query
     }
     
     public func start() {
@@ -33,6 +36,6 @@ final class BrowserFlowCoordinator: FlowCoordinator {
     }
     
     public func finish() {
-        
+        assertionFailure()
     }
 }
