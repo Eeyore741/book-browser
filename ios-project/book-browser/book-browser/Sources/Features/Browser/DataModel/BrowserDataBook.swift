@@ -15,3 +15,7 @@ struct BrowserDataBook {
     let title: String
     let imageUrl: String
 }
+
+/// Conforming book model to Codable getting functionality of
+/// decoding and encoding model from and into raw data
+extension BrowserDataBook: Codable { }
