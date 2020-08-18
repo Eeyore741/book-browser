@@ -9,16 +9,25 @@
 import Foundation
 
 /// Local dummy data model fetching static data
-struct BrowserDataModelLocal {
-    
-}
+struct BrowserDataModelLocal { }
 
 /// Conform local data model to browser data model protocol
 /// Exposing it for injection into book view model
 extension BrowserDataModelLocal: BrowserDataModel {
 
     func fetch(query: String?, completionHandler: (BrowserDataResult) -> ()) {
-        completionHandler(BrowserDataResult.failure(BrowserDataError.fetch))
+        guard let jsonData = BrowserDataModelLocal.dummyJSON.data(using: String.Encoding.utf8) else {
+            return completionHandler(BrowserDataResult.failure(BrowserDataError.fetch))
+        }
+        do {
+            let models = try JSONDecoder().decode([BrowserDataBook].self, from: jsonData)
+            completionHandler(BrowserDataResult.success(models))
+        } catch {
+            completionHandler(BrowserDataResult.failure(BrowserDataError.parse))
+        }
+    }
+}
+
 extension BrowserDataModelLocal {
     
     static var dummyJSON: String {
