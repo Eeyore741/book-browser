@@ -13,7 +13,7 @@ struct BrowserDataBook {
     let id: String
     let author: String
     let title: String
-    let imageUrl: String
+    let imageURL: String
 }
 
 /// Conforming book model to Codable getting functionality of
