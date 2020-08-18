@@ -19,5 +19,30 @@ extension BrowserDataModelLocal: BrowserDataModel {
 
     func fetch(query: String?, completionHandler: (BrowserDataResult) -> ()) {
         completionHandler(BrowserDataResult.failure(BrowserDataError.fetch))
+extension BrowserDataModelLocal {
+    
+    static var dummyJSON: String {
+        """
+        [
+            {
+                "id": "543990",
+                "author": "Sonja Kaiblinger",
+                "imageURL": "https://www.storytel.se/images/9783732005932/320x320/cover.jpg",
+                "title": "Scary Harry: Fledermaus frei Haus"
+            },
+            {
+                "id": "766269",
+                "author": "Johnny Marciano",
+                "imageURL": "https://www.storytel.se/images/9789877476026/320x320/cover.jpg",
+                "title": "Garry. Enemigos"
+            },
+            {
+                "id": "766271",
+                "author": "J.K. Rowling",
+                "imageURL": "https://www.storytel.se/images/9781781102374/320x320/cover.jpg",
+                "title": "Garry. Enemigos"
+            }
+        ]
+        """
     }
 }
