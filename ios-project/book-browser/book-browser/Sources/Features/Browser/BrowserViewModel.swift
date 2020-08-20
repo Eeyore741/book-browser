@@ -11,6 +11,9 @@ import UIKit
 /// View model for browser view
 struct BrowserViewModel {
     
+    // Data
+    var dataModel: BrowserDataModel
+    
     // Appearance
     var backgroundColor: UIColor = UIColor.blue
     
