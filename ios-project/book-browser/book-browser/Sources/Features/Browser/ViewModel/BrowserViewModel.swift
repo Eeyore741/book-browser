@@ -11,6 +11,8 @@ import UIKit
 /// View model for browser view
 struct BrowserViewModel {
     
+    var state: BrowserViewModelState = .inactive
+    
     // Data
     var dataModel: BrowserDataModel
     
@@ -22,7 +24,7 @@ struct BrowserViewModel {
     var cellType: UITableViewCell.Type = UITableViewCell.self
     var cellHeight: CGFloat = 0
     
-    // Callback
+    // Callbacks
     var onClose: (() -> Void) = { }
     var onSelect: (() -> Void) = { }
 }
