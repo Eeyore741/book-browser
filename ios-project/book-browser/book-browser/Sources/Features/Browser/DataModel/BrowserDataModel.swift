@@ -11,5 +11,12 @@ import Foundation
 /// Protocol describing data model for browser view model
 protocol BrowserDataModel {
     
+    /// Read only state of instance
+    var state: BrowserDataModelState { get }
+    
+    /// Fetch `book` models
+    /// - Parameters:
+    ///   - query: Attribute utilized in fetch call for matching `book` name
+    ///   - completionHandler: Attribute handling fetch task completion
     func fetch(query: String?, completionHandler: (BrowserDataResult) -> ())
 }
