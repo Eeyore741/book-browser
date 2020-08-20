@@ -27,9 +27,10 @@ final class BrowserFlowCoordinator: FlowCoordinator {
     }
     
     public func start() {
-        var model = BrowserViewModel()
-        model.backgroundColor = UIColor.red
-        let view = BrowserView(viewModel: model)
+        let dataModel = BrowserDataModelLocal()
+        var viewModel = BrowserViewModel(dataModel: dataModel)
+        viewModel.backgroundColor = UIColor.red
+        let view = BrowserView(viewModel: viewModel)
         let controller = BasicViewController(view: view)
         controller.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         self.parentController?.present(controller, animated: false)
