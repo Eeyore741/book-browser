@@ -9,7 +9,10 @@
 import Foundation
 
 /// Local dummy data model fetching static data
-struct BrowserDataModelLocal { }
+class BrowserDataModelLocal {
+    
+    var state: BrowserDataModelState = .inactive
+}
 
 /// Conform local data model to browser data model protocol
 /// Exposing it for injection into book view model
@@ -30,6 +33,7 @@ extension BrowserDataModelLocal: BrowserDataModel {
 
 extension BrowserDataModelLocal {
     
+    /// Dummy string describing JSON data
     static var dummyJSON: String {
         """
         [
