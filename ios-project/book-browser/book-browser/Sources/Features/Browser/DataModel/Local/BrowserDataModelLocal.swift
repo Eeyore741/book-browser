@@ -19,14 +19,22 @@ class BrowserDataModelLocal {
 extension BrowserDataModelLocal: BrowserDataModel {
 
     func fetch(query: String?, completionHandler: (BrowserDataResult) -> ()) {
+        
+        self.state = BrowserDataModelState.active
         guard let jsonData = BrowserDataModelLocal.dummyJSON.data(using: String.Encoding.utf8) else {
-            return completionHandler(BrowserDataResult.failure(BrowserDataError.fetch))
+            let error = BrowserDataError.fetch
+            self.state = BrowserDataModelState.error(error: error)
+            completionHandler(BrowserDataResult.failure(error))
+            return
         }
         do {
             let models = try JSONDecoder().decode([BrowserDataBook].self, from: jsonData)
             completionHandler(BrowserDataResult.success(models))
+            self.state = BrowserDataModelState.inactive
         } catch {
-            completionHandler(BrowserDataResult.failure(BrowserDataError.parse))
+            let error = BrowserDataError.parse
+            self.state = BrowserDataModelState.error(error: error)
+            completionHandler(BrowserDataResult.failure(error))
         }
     }
 }
