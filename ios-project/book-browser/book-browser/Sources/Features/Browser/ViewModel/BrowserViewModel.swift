@@ -8,10 +8,16 @@
 
 import UIKit
 
+/// Delegate protocol for `BrowserViewModel` type instance callbacks handling
+protocol BrowserViewModelDelegate {
+    func browserViewModel(_ model: BrowserViewModel, didChangeState state: BrowserViewModelState)
+}
+
 /// View model for browser view
-struct BrowserViewModel {
+final class BrowserViewModel {
     
     var state: BrowserViewModelState = .inactive
+    var delegate: BrowserViewModelDelegate?
     
     // Data
     var dataModel: BrowserDataModel
@@ -27,4 +33,8 @@ struct BrowserViewModel {
     // Callbacks
     var onClose: (() -> Void) = { }
     var onSelect: (() -> Void) = { }
+    
+    init(dataModel: BrowserDataModel) {
+        self.dataModel = dataModel
+    }
 }
