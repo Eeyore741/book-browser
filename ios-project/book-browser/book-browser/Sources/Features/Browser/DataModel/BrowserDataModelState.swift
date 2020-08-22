@@ -15,3 +15,5 @@ enum BrowserDataModelState {
     case active // Instance performing task
     case error(error: BrowserDataError) // Inactive with error
 }
+
+extension BrowserDataModelState: Equatable { }
