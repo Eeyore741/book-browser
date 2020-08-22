@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol BrowserDataModelDelegate {
+/// Refference type protocol wrapping `BrowserDataModel` callbacks
+protocol BrowserDataModelDelegate: class {
     
     func onDataModelStateChanged(_ model: BrowserDataModel)
 }
@@ -18,6 +19,7 @@ protocol BrowserDataModel {
     
     /// Read only state of instance
     var state: BrowserDataModelState { get }
+    var delegate: BrowserDataModelDelegate? { get }
     
     /// Fetch `book` models
     /// - Parameters:
