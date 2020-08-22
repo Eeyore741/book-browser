@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol BrowserDataModelDelegate {
+    
+    func onDataModelStateChanged(_ model: BrowserDataModel)
+}
+
 /// Protocol describing data model for browser view model
 protocol BrowserDataModel {
     
