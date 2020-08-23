@@ -8,9 +8,11 @@
 
 import Foundation
 
-/// Refference type protocol wrapping `BrowserDataModel` callbacks
+/// Reference type protocol wrapping `BrowserDataModel` callbacks
 protocol BrowserDataModelDelegate: class {
     
+    /// Called when view model state changed and new value is different from the old one
+    /// - Parameter model: Model instance
     func onDataModelStateChanged(_ model: BrowserDataModel)
 }
 
@@ -19,7 +21,7 @@ protocol BrowserDataModel {
     
     /// Read only state of instance
     var state: BrowserDataModelState { get }
-    var delegate: BrowserDataModelDelegate? { get }
+    var delegate: BrowserDataModelDelegate? { get set }
     
     /// Fetch `book` models
     /// - Parameters:
