@@ -9,9 +9,16 @@
 import Foundation
 
 /// Local dummy data model fetching static data
-class BrowserDataModelLocal {
+final class BrowserDataModelLocal {
     
-    var state: BrowserDataModelState = .inactive
+    var state: BrowserDataModelState = .inactive {
+        didSet {
+            guard self.state != oldValue else { return }
+            self.delegate?.onDataModelStateChanged(self)
+        }
+    }
+    
+    weak var delegate: BrowserDataModelDelegate?
 }
 
 /// Conform local data model to browser data model protocol
