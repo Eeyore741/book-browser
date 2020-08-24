@@ -11,6 +11,7 @@
 		FA13F9EC24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */; };
 		FA3730E124EB1A0D0091AEA0 /* BrowserDataModelLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3730E024EB1A0D0091AEA0 /* BrowserDataModelLocal.swift */; };
 		FA3730E524EC64B80091AEA0 /* BrowserDataModelLocalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3730E424EC64B80091AEA0 /* BrowserDataModelLocalTests.swift */; };
+		FA458C5A24F4472300106C40 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA458C5924F4472300106C40 /* BookCell.swift */; };
 		FA4BBCAA24EEF48C00957A34 /* BrowserDataModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BBCA924EEF48C00957A34 /* BrowserDataModelState.swift */; };
 		FA4BBCAD24EF064A00957A34 /* BrowserViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BBCAC24EF064A00957A34 /* BrowserViewModelState.swift */; };
 		FA4BBCAF24F02C7100957A34 /* BrowserDataBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BBCAE24F02C7100957A34 /* BrowserDataBookTests.swift */; };
@@ -56,6 +57,7 @@
 		FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA3730E024EB1A0D0091AEA0 /* BrowserDataModelLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataModelLocal.swift; sourceTree = "<group>"; };
 		FA3730E424EC64B80091AEA0 /* BrowserDataModelLocalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataModelLocalTests.swift; sourceTree = "<group>"; };
+		FA458C5924F4472300106C40 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		FA4BBCA924EEF48C00957A34 /* BrowserDataModelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataModelState.swift; sourceTree = "<group>"; };
 		FA4BBCAC24EF064A00957A34 /* BrowserViewModelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewModelState.swift; sourceTree = "<group>"; };
 		FA4BBCAE24F02C7100957A34 /* BrowserDataBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataBookTests.swift; sourceTree = "<group>"; };
@@ -123,10 +125,10 @@
 		FA13F9E324AF8E990071FE18 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				FA458C5824F4471000106C40 /* View */,
 				FA4BBCAB24EF063800957A34 /* ViewModel */,
 				FABE89E324EB11A50012D9C6 /* DataModel */,
 				FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */,
-				FA6E247224B8F7B2009F7A91 /* BrowserView.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -144,6 +146,15 @@
 			children = (
 			);
 			path = Remote;
+			sourceTree = "<group>";
+		};
+		FA458C5824F4471000106C40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E247224B8F7B2009F7A91 /* BrowserView.swift */,
+				FA458C5924F4472300106C40 /* BookCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FA4BBCAB24EF063800957A34 /* ViewModel */ = {
@@ -409,6 +420,7 @@
 				FA4BBCAD24EF064A00957A34 /* BrowserViewModelState.swift in Sources */,
 				FA6B87F824AF7F2B007005D7 /* AppDelegate.swift in Sources */,
 				FABE89E224EB10A90012D9C6 /* BrowserDataBook.swift in Sources */,
+				FA458C5A24F4472300106C40 /* BookCell.swift in Sources */,
 				FA6E247524B8F7D3009F7A91 /* BrowserViewModel.swift in Sources */,
 				FA6E246D24B23840009F7A91 /* GenericViewController.swift in Sources */,
 				FA3730E124EB1A0D0091AEA0 /* BrowserDataModelLocal.swift in Sources */,

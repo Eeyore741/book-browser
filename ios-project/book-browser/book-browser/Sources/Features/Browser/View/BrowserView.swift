@@ -21,7 +21,8 @@ final class BrowserView: UITableView {
         self.tintColor = self.viewModel.backgroundColor
         self.backgroundView?.backgroundColor = self.viewModel.backgroundColor
         self.register(self.viewModel.cellType, forCellReuseIdentifier: self.viewModel.cellType.reuseIdentifier)
-        self.rowHeight = self.viewModel.cellHeight
+        self.rowHeight = UITableView.automaticDimension
+        self.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     @available(*, unavailable)
@@ -37,11 +38,12 @@ extension BrowserView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard tableView == self else { fatalError("Instance should only be a data source for itself") }
         
-        return Int.random(in: 1...10)
+        return self.viewModel.numberOfConsumableItems
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard tableView == self else { fatalError("Instance should only be a data source for itself") }
+        
         
         return tableView.dequeueReusableCell(withIdentifier: self.viewModel.cellType.reuseIdentifier, for: indexPath)
     }
@@ -58,6 +60,7 @@ extension BrowserView: UITableViewDelegate {
 
 /// Private helper extension with file-only usefull functions
 private extension UITableViewCell {
+    
     class var reuseIdentifier: String {
         String(describing: self)
     }
