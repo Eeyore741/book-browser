@@ -36,5 +36,14 @@ final class BrowserViewModel {
     
     init(dataModel: BrowserDataModel) {
         self.dataModel = dataModel
+        self.dataModel.delegate = self
+    }
+}
+
+/// Make `BrowserViewModel` conform to `BrowserDataModelDelegate`
+extension BrowserViewModel: BrowserDataModelDelegate {
+    
+    func onDataModelStateChanged(_ model: BrowserDataModel) {
+        assertionFailure()
     }
 }
