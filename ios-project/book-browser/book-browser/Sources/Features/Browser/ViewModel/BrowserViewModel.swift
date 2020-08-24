@@ -10,13 +10,22 @@ import UIKit
 
 /// Delegate protocol for `BrowserViewModel` type instance callbacks handling
 protocol BrowserViewModelDelegate {
-    func browserViewModel(_ model: BrowserViewModel, didChangeState state: BrowserViewModelState)
+    
+    /// Called when view model state changed and new value is different from the old one
+    /// - Parameter model: Model instance
+    func viewModelDidChangeState(_ model: BrowserViewModel)
 }
 
 /// View model for browser view
 final class BrowserViewModel {
     
-    var state: BrowserViewModelState = .inactive
+    var state: BrowserViewModelState = .inactive {
+        didSet {
+            guard self.state != oldValue else { return }
+            self.delegate?.viewModelDidChangeState(self)
+        }
+    }
+    
     var delegate: BrowserViewModelDelegate?
     
     // Data
