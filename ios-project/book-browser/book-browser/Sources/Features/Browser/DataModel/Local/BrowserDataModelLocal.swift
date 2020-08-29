@@ -11,7 +11,7 @@ import Foundation
 /// Local dummy data model fetching static data
 final class BrowserDataModelLocal {
     
-    var state: BrowserDataModelState = .inactive {
+    var state: BrowserDataModelState = .inactive(response: nil) {
         didSet {
             guard self.state != oldValue else { return }
             self.delegate?.dataModelStateChanged(self)
@@ -25,23 +25,21 @@ final class BrowserDataModelLocal {
 /// Exposing it for injection into book view model
 extension BrowserDataModelLocal: BrowserDataModel {
 
-    func fetch(query: String?, completionHandler: (BrowserDataResult) -> ()) {
+    func fetch(query: String) {
         
         self.state = BrowserDataModelState.active
         guard let jsonData = BrowserDataModelLocal.dummyJSON.data(using: String.Encoding.utf8) else {
             let error = BrowserDataError.fetch
             self.state = BrowserDataModelState.error(error: error)
-            completionHandler(BrowserDataResult.failure(error))
             return
         }
         do {
             let models = try JSONDecoder().decode([BrowserDataBook].self, from: jsonData)
-            completionHandler(BrowserDataResult.success(models))
-            self.state = BrowserDataModelState.inactive
+            let response = BrowserDataResponse(books: models, query: query)
+            self.state = BrowserDataModelState.inactive(response: response)
         } catch {
             let error = BrowserDataError.parse
             self.state = BrowserDataModelState.error(error: error)
-            completionHandler(BrowserDataResult.failure(error))
         }
     }
 }

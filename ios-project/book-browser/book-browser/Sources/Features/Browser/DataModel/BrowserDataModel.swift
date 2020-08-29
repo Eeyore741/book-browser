@@ -21,11 +21,12 @@ protocol BrowserDataModel {
     
     /// Read only state of instance
     var state: BrowserDataModelState { get }
+    
+    /// Delegate reference type
     var delegate: BrowserDataModelDelegate? { get set }
     
     /// Fetch `book` models
     /// - Parameters:
     ///   - query: Attribute utilized in fetch call for matching `book` name
-    ///   - completionHandler: Attribute handling fetch task completion
-    func fetch(query: String?, completionHandler: (BrowserDataResult) -> ())
+    func fetch(query: String)
 }
