@@ -9,4 +9,4 @@
 import Foundation
 
 /// Alias wrapping result for browser data model
-typealias BrowserDataResult = Result<[BrowserDataBook], BrowserDataError>
+typealias BrowserDataResult = Result<BrowserDataResponse, BrowserDataError>
