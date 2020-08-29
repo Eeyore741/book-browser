@@ -13,7 +13,7 @@ protocol BrowserDataModelDelegate: class {
     
     /// Called when view model state changed and new value is different from the old one
     /// - Parameter model: Model instance
-    func onDataModelStateChanged(_ model: BrowserDataModel)
+    func dataModelStateChanged(_ model: BrowserDataModel)
 }
 
 /// Protocol describing data model for browser view model

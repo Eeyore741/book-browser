@@ -14,7 +14,7 @@ final class BrowserDataModelLocal {
     var state: BrowserDataModelState = .inactive {
         didSet {
             guard self.state != oldValue else { return }
-            self.delegate?.onDataModelStateChanged(self)
+            self.delegate?.dataModelStateChanged(self)
         }
     }
     

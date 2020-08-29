@@ -13,7 +13,7 @@ protocol BrowserViewModelDelegate {
     
     /// Called when view model state changed and new value is different from the old one
     /// - Parameter model: Model instance
-    func viewModelDidChangeState(_ model: BrowserViewModel)
+    func viewModelStateChanged(_ model: BrowserViewModel)
 }
 
 /// View model for browser view
@@ -22,7 +22,7 @@ final class BrowserViewModel {
     var state: BrowserViewModelState = .inactive {
         didSet {
             guard self.state != oldValue else { return }
-            self.delegate?.viewModelDidChangeState(self)
+            self.delegate?.viewModelStateChanged(self)
         }
     }
     
@@ -52,7 +52,7 @@ final class BrowserViewModel {
 /// Make `BrowserViewModel` conform to `BrowserDataModelDelegate`
 extension BrowserViewModel: BrowserDataModelDelegate {
     
-    func onDataModelStateChanged(_ model: BrowserDataModel) {
+    func dataModelStateChanged(_ model: BrowserDataModel) {
         assertionFailure()
     }
 }

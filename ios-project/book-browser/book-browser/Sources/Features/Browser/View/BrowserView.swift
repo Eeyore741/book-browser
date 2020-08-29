@@ -44,7 +44,6 @@ extension BrowserView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard tableView == self else { fatalError("Instance should only be a data source for itself") }
         
-        
         return tableView.dequeueReusableCell(withIdentifier: self.viewModel.cellType.reuseIdentifier, for: indexPath)
     }
 }
