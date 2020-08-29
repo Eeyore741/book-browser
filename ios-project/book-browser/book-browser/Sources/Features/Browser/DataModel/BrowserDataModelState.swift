@@ -11,7 +11,7 @@ import Foundation
 /// Type representing state of data model instance lifecycle
 enum BrowserDataModelState {
     
-    case inactive // Ready for calls
+    case inactive(response: BrowserDataResponse?) // Ready for calls
     case active // Instance performing task
     case error(error: BrowserDataError) // Inactive with error
 }
