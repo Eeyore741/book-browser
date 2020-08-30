@@ -32,20 +32,25 @@ final class BrowserViewModel {
     var dataModel: BrowserDataModel
     
     // Appearance
-    var backgroundColor: UIColor = UIColor.blue
+    var backgroundColor: UIColor = UIColor.lightText
     
     // Fuctional
-    var searchText: String = String()
-    var cellType: UITableViewCell.Type = UITableViewCell.self
-    var cellHeight: CGFloat = 0
+    var searchText: String?
+    var cellType: UITableViewCell.Type = BookCell.self
     
     // Callbacks
     var onClose: (() -> Void) = { }
     var onSelect: (() -> Void) = { }
     
+    var numberOfConsumableItems: Int = 0
+    
     init(dataModel: BrowserDataModel) {
         self.dataModel = dataModel
         self.dataModel.delegate = self
+    }
+    
+    func fillCellWithModel(_ cell: BookCell) {
+        
     }
 }
 
