@@ -28,8 +28,8 @@ final class BrowserFlowCoordinator: FlowCoordinator {
     
     public func start() {
         let dataModel = BrowserDataModelLocal()
-        var viewModel = BrowserViewModel(dataModel: dataModel)
-        viewModel.backgroundColor = UIColor.red
+        let viewModel = BrowserViewModel(dataModel: dataModel)
+        viewModel.searchText = self.query
         let view = BrowserView(viewModel: viewModel)
         let controller = BasicViewController(view: view)
         controller.modalPresentationStyle = UIModalPresentationStyle.fullScreen
