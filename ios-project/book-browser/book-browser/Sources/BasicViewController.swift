@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class BasicViewController: UIViewController {
+final class BasicViewController<View: UIView & UILoadable>: UIViewController {
     
-    private let rootView: UIView
+    private let rootView: View
     
-    init(view: UIView) {
+    init(view: View) {
         self.rootView = view
         super.init(nibName: nil, bundle: nil)
     }
