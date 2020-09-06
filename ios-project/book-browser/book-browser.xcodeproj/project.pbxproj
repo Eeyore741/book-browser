@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA13F9EA24AF8F9E0071FE18 /* InputFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */; };
 		FA13F9EC24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */; };
+		FA2FBFC82505628B006AC8EF /* UILoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FBFC72505628B006AC8EF /* UILoadable.swift */; };
 		FA3730E124EB1A0D0091AEA0 /* BrowserDataModelLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3730E024EB1A0D0091AEA0 /* BrowserDataModelLocal.swift */; };
 		FA3730E524EC64B80091AEA0 /* BrowserDataModelLocalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3730E424EC64B80091AEA0 /* BrowserDataModelLocalTests.swift */; };
 		FA458C5A24F4472300106C40 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA458C5924F4472300106C40 /* BookCell.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserFlowCoordinator.swift; sourceTree = "<group>"; };
+		FA2FBFC72505628B006AC8EF /* UILoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoadable.swift; sourceTree = "<group>"; };
 		FA3730E024EB1A0D0091AEA0 /* BrowserDataModelLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataModelLocal.swift; sourceTree = "<group>"; };
 		FA3730E424EC64B80091AEA0 /* BrowserDataModelLocalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataModelLocalTests.swift; sourceTree = "<group>"; };
 		FA458C5924F4472300106C40 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				FA9311B924AF862F0057557D /* FlowCoordinator.swift */,
 				FA6E246C24B23840009F7A91 /* GenericViewController.swift */,
 				FA6E247024B24221009F7A91 /* BasicViewController.swift */,
+				FA2FBFC72505628B006AC8EF /* UILoadable.swift */,
 				FA9311B824AF861B0057557D /* Root */,
 				FA9311B724AF86130057557D /* Features */,
 			);
@@ -438,6 +441,7 @@
 				FA13F9EC24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift in Sources */,
 				FA4BBCAA24EEF48C00957A34 /* BrowserDataModelState.swift in Sources */,
 				FA6E247324B8F7B2009F7A91 /* BrowserView.swift in Sources */,
+				FA2FBFC82505628B006AC8EF /* UILoadable.swift in Sources */,
 				FABE89E524EB122A0012D9C6 /* BrowserDataError.swift in Sources */,
 				FABE89E724EB12920012D9C6 /* BrowserDataResult.swift in Sources */,
 			);
