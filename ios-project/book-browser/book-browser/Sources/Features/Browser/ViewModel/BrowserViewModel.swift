@@ -29,7 +29,8 @@ final class BrowserViewModel {
     var delegate: BrowserViewModelDelegate?
     
     // Data
-    var dataModel: BrowserDataModel
+    private var dataModel: BrowserDataModel
+    private var books: [BrowserDataBook] = [BrowserDataBook]()
     
     // Appearance
     var backgroundColor: UIColor = UIColor.lightText
@@ -50,7 +51,7 @@ final class BrowserViewModel {
     }
     
     func fillCellWithModel(_ cell: BookCell) {
-        
+        assertionFailure()
     }
 }
 
