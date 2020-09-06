@@ -57,6 +57,15 @@ extension BrowserView: UITableViewDelegate {
     }
 }
 
+
+/// Conform `BrowserView` so view may react on it load event
+extension BrowserView: UILoadable {
+    
+    func didLoad() {
+        assertionFailure()
+    }
+}
+
 /// Private helper extension with file-only usefull functions
 private extension UITableViewCell {
     
