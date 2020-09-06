@@ -71,3 +71,10 @@ private enum Layout {
     static var editTopAnchorConst: CGFloat = { UIScreen.main.bounds.height / 4.0 }()
     static var editWidthAnchorConst: CGFloat = { UIScreen.main.bounds.width / 2.0 }()
 }
+
+extension InputView: UILoadable {
+    
+    func didLoad() {
+        assertionFailure("Undefined")
+    }
+}
