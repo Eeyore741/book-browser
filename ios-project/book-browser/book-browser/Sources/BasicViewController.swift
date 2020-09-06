@@ -24,4 +24,8 @@ final class BasicViewController<View: UIView & UILoadable>: UIViewController {
     override func loadView() {
         self.view = self.rootView
     }
+    
+    override func viewDidLoad() {
+        self.rootView.didLoad()
+    }
 }
