@@ -60,5 +60,18 @@ extension BrowserViewModel: BrowserDataModelDelegate {
     
     func dataModelStateChanged(_ model: BrowserDataModel) {
         assertionFailure()
+
+/// File private `String` extension
+private extension String {
+    
+    /// Convenience `String` builder utilizing module internal type
+    /// - Parameter error: Data error to determine resulting string content error message
+    init(withBrowserDataError error: BrowserDataError) {
+        switch error {
+        case .fetch:
+            self = "Data fetch error"
+        case .parse:
+            self = "Data parse error"
+        }
     }
 }
