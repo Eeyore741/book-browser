@@ -59,7 +59,20 @@ final class BrowserViewModel {
 extension BrowserViewModel: BrowserDataModelDelegate {
     
     func dataModelStateChanged(_ model: BrowserDataModel) {
-        assertionFailure()
+        switch model.state {
+        case .active:
+            self.state = BrowserViewModelState.active
+        case .error(let error):
+            let errorMessage = String(withBrowserDataError: error)
+            self.state = BrowserViewModelState.alert(message: errorMessage)
+        case .inactive(let response):
+            if let response = response {
+                self.books += response.books
+            }
+            self.state = BrowserViewModelState.inactive
+        }
+    }
+}
 
 /// File private `String` extension
 private extension String {
