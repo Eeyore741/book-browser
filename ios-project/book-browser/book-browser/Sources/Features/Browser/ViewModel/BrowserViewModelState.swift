@@ -13,7 +13,7 @@ enum BrowserViewModelState {
     
     case inactive // Ready for user interaction
     case active // Activity state unavailable for user interaction
-    case alert // Modal alert presenting state waiting for user decision
+    case alert(message: String) // Modal alert presenting state waiting for user decision
 }
 
 extension BrowserViewModelState: Equatable { }
