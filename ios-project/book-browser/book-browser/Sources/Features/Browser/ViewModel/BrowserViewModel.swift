@@ -53,6 +53,11 @@ final class BrowserViewModel {
     func fillCellWithModel(_ cell: BookCell) {
         assertionFailure()
     }
+    
+    func refresh() {
+        self.state = BrowserViewModelState.active
+        self.dataModel.fetch(query: self.searchText)
+    }
 }
 
 /// Make `BrowserViewModel` conform to `BrowserDataModelDelegate`
