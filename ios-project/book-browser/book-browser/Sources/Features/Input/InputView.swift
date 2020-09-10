@@ -75,6 +75,6 @@ private enum Layout {
 extension InputView: UILoadable {
     
     func didLoad() {
-        assertionFailure("Undefined")
+        self.textField.becomeFirstResponder()
     }
 }
