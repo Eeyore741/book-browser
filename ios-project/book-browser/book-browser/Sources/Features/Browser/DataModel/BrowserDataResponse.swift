@@ -12,7 +12,7 @@ import Foundation
 struct BrowserDataResponse {
     
     let books: [BrowserDataBook]
-    let query: String
+    let query: String?
 }
 
 /// Conform to `Equatable` so encapsulating types can also conform

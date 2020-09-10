@@ -25,7 +25,7 @@ final class BrowserDataModelLocal {
 /// Exposing it for injection into book view model
 extension BrowserDataModelLocal: BrowserDataModel {
 
-    func fetch(query: String) {
+    func fetch(query: String?) {
         
         self.state = BrowserDataModelState.active
         guard let jsonData = BrowserDataModelLocal.dummyJSON.data(using: String.Encoding.utf8) else {

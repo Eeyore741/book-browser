@@ -28,5 +28,5 @@ protocol BrowserDataModel {
     /// Fetch `book` models
     /// - Parameters:
     ///   - query: Attribute utilized in fetch call for matching `book` name
-    func fetch(query: String)
+    func fetch(query: String?)
 }
