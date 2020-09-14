@@ -73,3 +73,22 @@ private extension UITableViewCell {
         String(describing: self)
     }
 }
+
+/// Conform so `BrowserView` can be a delegate for own view model
+extension BrowserView: BrowserViewModelDelegate {
+    
+    /// React on view model state changed
+    /// - Parameter model: View model
+    func viewModelStateChanged(_ model: BrowserViewModel) {
+        guard model === self.viewModel else { fatalError("Instance should only be delegate for own model") }
+        
+        switch model.state {
+        case .active:
+            assertionFailure()
+        case .alert(let message):
+            assertionFailure()
+        case .inactive:
+            assertionFailure()
+        }
+    }
+}
