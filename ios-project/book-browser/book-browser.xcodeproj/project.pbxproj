@@ -129,10 +129,10 @@
 		FA13F9E324AF8E990071FE18 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */,
 				FA458C5824F4471000106C40 /* View */,
 				FA4BBCAB24EF063800957A34 /* ViewModel */,
 				FABE89E324EB11A50012D9C6 /* DataModel */,
-				FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";

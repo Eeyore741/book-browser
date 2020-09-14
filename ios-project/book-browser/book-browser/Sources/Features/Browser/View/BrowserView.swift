@@ -12,7 +12,11 @@ final class BrowserView: UITableView {
     
     override class var requiresConstraintBasedLayout: Bool { true }
     
-    public var viewModel: BrowserViewModel
+    public var viewModel: BrowserViewModel {
+        didSet {
+            self.viewModel.delegate = self
+        }
+    }
     
     init(viewModel: BrowserViewModel) {
         self.viewModel = viewModel
@@ -53,16 +57,18 @@ extension BrowserView: UITableViewDataSource {
 extension BrowserView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard tableView == self else { fatalError("Instance should only be a delegate for itself") }
+        
         self.viewModel.onSelect() // TODO: fill with model
     }
 }
 
 
-/// Conform `BrowserView` so view may react on it load event
+/// Conform `BrowserView` so view may react on its UI load event
 extension BrowserView: UILoadable {
     
     func didLoad() {
-        assertionFailure()
+        self.viewModel.refresh()
     }
 }
 
