@@ -12,18 +12,17 @@ final class BrowserView: UITableView {
     
     override class var requiresConstraintBasedLayout: Bool { true }
     
-    public var viewModel: BrowserViewModel {
-        didSet {
-            self.viewModel.delegate = self
-        }
-    }
+    public let viewModel: BrowserViewModel
     
     init(viewModel: BrowserViewModel) {
         self.viewModel = viewModel
         super.init(frame: CGRect.zero, style: UITableView.Style.plain)
+        self.viewModel.delegate = self
+        
         self.backgroundColor = self.viewModel.backgroundColor
         self.tintColor = self.viewModel.backgroundColor
         self.backgroundView?.backgroundColor = self.viewModel.backgroundColor
+        
         self.register(self.viewModel.cellType, forCellReuseIdentifier: self.viewModel.cellType.reuseIdentifier)
         self.rowHeight = UITableView.automaticDimension
         self.tableFooterView = UIView(frame: CGRect.zero)
@@ -72,14 +71,6 @@ extension BrowserView: UILoadable {
     }
 }
 
-/// Private helper extension with file-only usefull functions
-private extension UITableViewCell {
-    
-    class var reuseIdentifier: String {
-        String(describing: self)
-    }
-}
-
 /// Conform so `BrowserView` can be a delegate for own view model
 extension BrowserView: BrowserViewModelDelegate {
     
@@ -98,3 +89,13 @@ extension BrowserView: BrowserViewModelDelegate {
         }
     }
 }
+
+/// Private helper extension with file-only usefull functions
+private extension UITableViewCell {
+    
+    class var reuseIdentifier: String {
+        String(describing: self)
+    }
+}
+
+extension BrowserView: UILockable { }
