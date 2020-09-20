@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA1344572512A638006848AC /* UILockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1344562512A638006848AC /* UILockable.swift */; };
 		FA13F9EA24AF8F9E0071FE18 /* InputFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */; };
 		FA13F9EC24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */; };
 		FA2FBFC82505628B006AC8EF /* UILoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FBFC72505628B006AC8EF /* UILoadable.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA1344562512A638006848AC /* UILockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILockable.swift; sourceTree = "<group>"; };
 		FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA2FBFC72505628B006AC8EF /* UILoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoadable.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				FA6E246C24B23840009F7A91 /* GenericViewController.swift */,
 				FA6E247024B24221009F7A91 /* BasicViewController.swift */,
 				FA2FBFC72505628B006AC8EF /* UILoadable.swift */,
+				FA1344562512A638006848AC /* UILockable.swift */,
 				FA9311B824AF861B0057557D /* Root */,
 				FA9311B724AF86130057557D /* Features */,
 			);
@@ -434,6 +437,7 @@
 				FA13F9EA24AF8F9E0071FE18 /* InputFlowCoordinator.swift in Sources */,
 				FA6B87FA24AF7F2B007005D7 /* SceneDelegate.swift in Sources */,
 				FA9311BE24AF8AFD0057557D /* ApplicationFlowCoordinator.swift in Sources */,
+				FA1344572512A638006848AC /* UILockable.swift in Sources */,
 				FA6E247124B24221009F7A91 /* BasicViewController.swift in Sources */,
 				FA6E246B24B235E4009F7A91 /* InputViewModel.swift in Sources */,
 				FA6E246F24B239A3009F7A91 /* InputView.swift in Sources */,
