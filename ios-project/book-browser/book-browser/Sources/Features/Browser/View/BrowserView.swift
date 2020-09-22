@@ -32,6 +32,32 @@ final class BrowserView: UITableView {
         self.tableFooterView = UIView(frame: CGRect.zero)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        switch self.viewModel.state {
+        case .active:
+            self.displayActivity(true)
+        case .alert(_):
+            self.displayActivity(false)
+        case .inactive:
+            self.displayActivity(false)
+            self.reloadData()
+        }
+        
+        guard self.subviewsLayoutOnce == false else { return }
+        defer { self.subviewsLayoutOnce = true }
+        
+        self.activityView.translatesAutoresizingMaskIntoConstraints = false
+        self.activityView.backgroundColor = UIColor.red.withAlphaComponent(0.333)
+        NSLayoutConstraint.activate([
+            self.activityView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.activityView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.activityView.widthAnchor.constraint(equalToConstant: 90.0),
+            self.activityView.heightAnchor.constraint(equalToConstant: 90.0)
+        ])
+    }
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -98,14 +124,7 @@ extension BrowserView: BrowserViewModelDelegate {
     func viewModelStateChanged(_ model: BrowserViewModel) {
         guard model === self.viewModel else { fatalError("Instance should only be delegate for own model") }
         
-        switch model.state {
-        case .active:
-            assertionFailure()
-        case .alert(let message):
-            assertionFailure()
-        case .inactive:
-            assertionFailure()
-        }
+        self.setNeedsLayout()
     }
 }
 
@@ -116,5 +135,3 @@ private extension UITableViewCell {
         String(describing: self)
     }
 }
-
-extension BrowserView: UILockable { }
