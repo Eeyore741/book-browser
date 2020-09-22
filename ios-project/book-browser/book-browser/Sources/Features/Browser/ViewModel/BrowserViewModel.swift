@@ -33,7 +33,7 @@ final class BrowserViewModel {
     private var books: [BrowserDataBook] = [BrowserDataBook]()
     
     // Appearance
-    var backgroundColor: UIColor = UIColor.lightText
+    var backgroundColor: UIColor = UIColor.white
     
     // Fuctional
     var searchText: String?
@@ -43,7 +43,7 @@ final class BrowserViewModel {
     var onClose: (() -> Void) = { }
     var onSelect: (() -> Void) = { }
     
-    var numberOfConsumableItems: Int = 0
+    var numberOfConsumableItems: Int { self.books.count }
     
     init(dataModel: BrowserDataModel) {
         self.dataModel = dataModel
