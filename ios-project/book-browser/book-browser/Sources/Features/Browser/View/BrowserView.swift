@@ -39,13 +39,13 @@ final class BrowserView: UITableView {
 extension BrowserView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard tableView == self else { fatalError("Instance should only be a data source for itself") }
+        guard tableView === self else { fatalError("Instance should only be a data source for itself") }
         
         return self.viewModel.numberOfConsumableItems
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard tableView == self else { fatalError("Instance should only be a data source for itself") }
+        guard tableView === self else { fatalError("Instance should only be a data source for itself") }
         
         return tableView.dequeueReusableCell(withIdentifier: self.viewModel.cellType.reuseIdentifier, for: indexPath)
     }
@@ -56,7 +56,7 @@ extension BrowserView: UITableViewDataSource {
 extension BrowserView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard tableView == self else { fatalError("Instance should only be a delegate for itself") }
+        guard tableView === self else { fatalError("Instance should only be a delegate for itself") }
         
         self.viewModel.onSelect() // TODO: fill with model
     }
