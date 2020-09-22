@@ -12,17 +12,21 @@ final class BrowserView: UITableView {
     
     override class var requiresConstraintBasedLayout: Bool { true }
     
+    private let activityView: ActivityView = ActivityView()
+    private var subviewsLayoutOnce: Bool = false
+    
     public let viewModel: BrowserViewModel
     
     init(viewModel: BrowserViewModel) {
         self.viewModel = viewModel
         super.init(frame: CGRect.zero, style: UITableView.Style.plain)
         self.viewModel.delegate = self
+        self.dataSource = self
+        self.delegate = self
         
+        // Subviews & appearance
         self.backgroundColor = self.viewModel.backgroundColor
-        self.tintColor = self.viewModel.backgroundColor
-        self.backgroundView?.backgroundColor = self.viewModel.backgroundColor
-        
+        self.addSubview(self.activityView)
         self.register(self.viewModel.cellType, forCellReuseIdentifier: self.viewModel.cellType.reuseIdentifier)
         self.rowHeight = UITableView.automaticDimension
         self.tableFooterView = UIView(frame: CGRect.zero)
