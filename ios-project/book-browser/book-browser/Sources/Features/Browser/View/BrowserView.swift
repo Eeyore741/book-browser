@@ -66,6 +66,21 @@ extension BrowserView: UITableViewDelegate {
     }
 }
 
+/// Private helper methods
+extension BrowserView {
+
+    private func displayActivity(_ display: Bool) {
+        guard self.activityView.superview != nil else { return }
+        
+        if display {
+            self.bringSubviewToFront(self.activityView)
+        } else {
+            self.sendSubviewToBack(self.activityView)
+        }
+        self.activityView.alpha = display ? 1 : 0
+    }
+}
+
 
 /// Conform `BrowserView` so view may react on its UI load event
 extension BrowserView: UILoadable {
