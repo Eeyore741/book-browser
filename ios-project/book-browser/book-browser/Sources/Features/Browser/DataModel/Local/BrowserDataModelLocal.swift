@@ -27,19 +27,22 @@ extension BrowserDataModelLocal: BrowserDataModel {
 
     func fetch(query: String?) {
         
-        self.state = BrowserDataModelState.active
-        guard let jsonData = BrowserDataModelLocal.dummyJSON.data(using: String.Encoding.utf8) else {
-            let error = BrowserDataError.fetch
-            self.state = BrowserDataModelState.error(error: error)
-            return
-        }
-        do {
-            let models = try JSONDecoder().decode([BrowserDataBook].self, from: jsonData)
-            let response = BrowserDataResponse(books: models, query: query)
-            self.state = BrowserDataModelState.inactive(response: response)
-        } catch {
-            let error = BrowserDataError.parse
-            self.state = BrowserDataModelState.error(error: error)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            
+            self.state = BrowserDataModelState.active
+            guard let jsonData = BrowserDataModelLocal.dummyJSON.data(using: String.Encoding.utf8) else {
+                let error = BrowserDataError.fetch
+                self.state = BrowserDataModelState.error(error: error)
+                return
+            }
+            do {
+                let models = try JSONDecoder().decode([BrowserDataBook].self, from: jsonData)
+                let response = BrowserDataResponse(books: models, query: query)
+                self.state = BrowserDataModelState.inactive(response: response)
+            } catch {
+                let error = BrowserDataError.parse
+                self.state = BrowserDataModelState.error(error: error)
+            }
         }
     }
 }
