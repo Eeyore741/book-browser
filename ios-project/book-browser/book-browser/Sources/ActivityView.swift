@@ -19,8 +19,6 @@ final class ActivityView: UIView {
     
     init() {
         super.init(frame: CGRect.zero)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = UIColor.red.withAlphaComponent(0.25)
     }
     
     @available(*, unavailable)
