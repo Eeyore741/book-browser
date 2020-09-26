@@ -50,8 +50,10 @@ final class BrowserViewModel {
         self.dataModel.delegate = self
     }
     
-    func fillCellWithModel(_ cell: BookCell) {
-        assertionFailure()
+    func fillCell(_ cell: BookCell, withModelAtIndex index: Int) throws {
+        let model = self.books[index]
+        cell.authorLabel.text = model.author
+        cell.titleLabel.text = model.title
     }
     
     func refresh() {
