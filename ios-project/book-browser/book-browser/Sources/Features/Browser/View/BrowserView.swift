@@ -35,16 +35,6 @@ final class BrowserView: UITableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        switch self.viewModel.state {
-        case .active:
-            self.displayActivity(true)
-        case .alert(_):
-            self.displayActivity(false)
-        case .inactive:
-            self.displayActivity(false)
-            self.reloadData()
-        }
-        
         guard self.subviewsLayoutOnce == false else { return }
         defer { self.subviewsLayoutOnce = true }
         
@@ -129,7 +119,15 @@ extension BrowserView: BrowserViewModelDelegate {
     func viewModelStateChanged(_ model: BrowserViewModel) {
         guard model === self.viewModel else { fatalError("Instance should only be delegate for own model") }
         
-        self.setNeedsLayout()
+        switch self.viewModel.state {
+        case .active:
+            self.displayActivity(true)
+        case .alert(_):
+            self.displayActivity(false)
+        case .inactive:
+            self.displayActivity(false)
+            self.reloadData()
+        }
     }
 }
 
