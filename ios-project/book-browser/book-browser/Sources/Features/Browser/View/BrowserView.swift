@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// View displaying list of books
 final class BrowserView: UITableView {
     
     override class var requiresConstraintBasedLayout: Bool { true }
@@ -17,6 +18,8 @@ final class BrowserView: UITableView {
     
     public let viewModel: BrowserViewModel
     
+    /// Designated initializer
+    /// - Parameter viewModel: View model providing interface for view instance
     init(viewModel: BrowserViewModel) {
         self.viewModel = viewModel
         super.init(frame: CGRect.zero, style: UITableView.Style.plain)
@@ -83,14 +86,16 @@ extension BrowserView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard tableView === self else { fatalError("Instance should only be a delegate for itself") }
         
-        self.viewModel.onSelect() // TODO: fill with model
+        self.viewModel.onSelect() // TODO: do something?
     }
 }
 
 /// Private helper methods
-extension BrowserView {
-
-    private func displayActivity(_ display: Bool) {
+private extension BrowserView {
+    
+    /// Lock/unlock view for user interaction with displaying of activity indicator
+    /// - Parameter display: Lock or unlock
+    func displayActivity(_ display: Bool) {
         guard self.activityView.superview != nil else { return }
         
         if display {
