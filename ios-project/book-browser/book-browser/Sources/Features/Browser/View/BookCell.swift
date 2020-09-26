@@ -35,8 +35,6 @@ final class BookCell: UITableViewCell {
         guard self.constraintsLayoutOnce == false else { return }
         defer { self.constraintsLayoutOnce = true }
         
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
         [self.titleLabel, self.authorLabel].forEach { (subview: UILabel) in
             subview.translatesAutoresizingMaskIntoConstraints = false
             self.contentView.addSubview(subview)
