@@ -20,13 +20,13 @@ final class BrowserView: UITableView {
     init(viewModel: BrowserViewModel) {
         self.viewModel = viewModel
         super.init(frame: CGRect.zero, style: UITableView.Style.plain)
-        self.viewModel.delegate = self
         self.dataSource = self
         self.delegate = self
+        self.viewModel.delegate = self
         
         // Subviews & appearance
         self.backgroundColor = self.viewModel.backgroundColor
-        self.addSubview(self.activityView)
+//        self.addSubview(self.activityView)
         self.register(self.viewModel.cellType, forCellReuseIdentifier: self.viewModel.cellType.reuseIdentifier)
         self.rowHeight = UITableView.automaticDimension
         self.tableFooterView = UIView(frame: CGRect.zero)
@@ -50,12 +50,12 @@ final class BrowserView: UITableView {
         
         self.activityView.translatesAutoresizingMaskIntoConstraints = false
         self.activityView.backgroundColor = UIColor.red.withAlphaComponent(0.333)
-        NSLayoutConstraint.activate([
-            self.activityView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.activityView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.activityView.widthAnchor.constraint(equalToConstant: 90.0),
-            self.activityView.heightAnchor.constraint(equalToConstant: 90.0)
-        ])
+//        NSLayoutConstraint.activate([
+//            self.activityView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+//            self.activityView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+//            self.activityView.widthAnchor.constraint(equalToConstant: 90.0),
+//            self.activityView.heightAnchor.constraint(equalToConstant: 90.0)
+//        ])
     }
     
     @available(*, unavailable)
