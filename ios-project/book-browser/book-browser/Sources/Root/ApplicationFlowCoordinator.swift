@@ -51,7 +51,7 @@ extension ApplicationFlowCoordinator {
     /// Flow fetching & displaying list of book models to brows and single select
     /// - Parameter searchString: Optional query attribute to pass utilize in data fetching
     private func startBookBrowserFlow(searchString: String? = nil) {
-        let browserFlow = BrowserFlowCoordinator(parentController: self.navigationController)
+        let browserFlow = BrowserFlowCoordinator(parentController: self.navigationController, query: searchString)
         self.addChildFlowCoordinator(browserFlow)
         browserFlow.start()
     }
