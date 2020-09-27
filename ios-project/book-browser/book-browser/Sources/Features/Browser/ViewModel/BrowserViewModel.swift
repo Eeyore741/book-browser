@@ -92,6 +92,8 @@ private extension String {
             self = "Data fetch error"
         case .parse:
             self = "Data parse error"
+        case .request:
+            self = "Data request error"
         }
     }
 }
