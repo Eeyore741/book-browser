@@ -32,8 +32,8 @@ final class BrowserFlowCoordinator: FlowCoordinator {
         viewModel.searchText = self.query
         let view = BrowserView(viewModel: viewModel)
         let controller = BasicViewController(view: view)
-        controller.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        self.parentController?.present(controller, animated: false)
+        controller.navigationItem.title = "List"
+        self.parentController?.pushViewController(controller, animated: true)
     }
     
     public func finish() {
