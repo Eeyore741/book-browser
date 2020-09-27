@@ -21,6 +21,7 @@ final class ApplicationFlowCoordinator: FlowCoordinator {
     init(window: UIWindow) {
         self.window = window
         self.navigationController = UINavigationController(nibName: nil, bundle: nil)
+        self.navigationController.navigationBar.tintColor = UIColor.gray
         self.window.rootViewController = navigationController
         self.window.makeKeyAndVisible()
     }
