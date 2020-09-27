@@ -33,8 +33,9 @@ final class InputFlowCoordinator: FlowCoordinator {
         let view = InputView(viewModel: model)
         let controller = BasicViewController(view: view)
         controller.modalPresentationStyle = .fullScreen
-        self.parentController?.present(controller, animated: false)
+        self.parentController?.pushViewController(controller, animated: true)
         self.viewController = controller
+        self.viewController?.navigationItem.title = "Input"
     }
     
     public func finish(completionHandler: (() -> Void)? = nil) {
