@@ -9,10 +9,11 @@
 import UIKit
 
 /// View displaying list of books
-final class BrowserView: UITableView {
+final class BrowserView: UIView {
     
     override class var requiresConstraintBasedLayout: Bool { true }
     
+    private let tableView: UITableView = UITableView(frame: CGRect.zero)
     private let activityView: ActivityView = ActivityView()
     private var subviewsLayoutOnce: Bool = false
     
@@ -22,18 +23,19 @@ final class BrowserView: UITableView {
     /// - Parameter viewModel: View model providing interface for view instance
     init(viewModel: BrowserViewModel) {
         self.viewModel = viewModel
-        super.init(frame: CGRect.zero, style: UITableView.Style.plain)
-        self.dataSource = self
-        self.delegate = self
+        super.init(frame: CGRect.zero)
         self.viewModel.delegate = self
         
         // Subviews & appearance
         self.backgroundColor = self.viewModel.backgroundColor
-//        self.addSubview(self.activityView)
-        self.register(self.viewModel.cellType, forCellReuseIdentifier: self.viewModel.cellType.reuseIdentifier)
-        self.rowHeight = UITableView.automaticDimension
-        self.tableFooterView = UIView(frame: CGRect.zero)
-        self.separatorInset = UIEdgeInsets.zero
+        self.addSubview(self.activityView)
+        self.addSubview(self.tableView)
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.register(self.viewModel.cellType, forCellReuseIdentifier: self.viewModel.cellType.reuseIdentifier)
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.tableView.separatorInset = UIEdgeInsets.zero
     }
     
     override func layoutSubviews() {
@@ -42,14 +44,20 @@ final class BrowserView: UITableView {
         guard self.subviewsLayoutOnce == false else { return }
         defer { self.subviewsLayoutOnce = true }
         
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.tableView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            self.tableView.heightAnchor.constraint(equalTo: self.heightAnchor)
+        ])
+        
         self.activityView.translatesAutoresizingMaskIntoConstraints = false
         self.activityView.backgroundColor = UIColor.red.withAlphaComponent(0.333)
-//        NSLayoutConstraint.activate([
-//            self.activityView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            self.activityView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            self.activityView.widthAnchor.constraint(equalToConstant: 90.0),
-//            self.activityView.heightAnchor.constraint(equalToConstant: 90.0)
-//        ])
+        NSLayoutConstraint.activate([
+            self.activityView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.activityView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.activityView.widthAnchor.constraint(equalToConstant: 90.0),
+            self.activityView.heightAnchor.constraint(equalToConstant: 90.0)
+        ])
     }
     
     @available(*, unavailable)
@@ -63,13 +71,13 @@ final class BrowserView: UITableView {
 extension BrowserView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard tableView === self else { fatalError("Instance should only be a data source for itself") }
+        guard tableView === self.tableView else { fatalError("Instance should only be a data source for itself") }
         
         return self.viewModel.numberOfConsumableItems
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard tableView === self else { fatalError("Instance should only be a data source for itself") }
+        guard tableView === self.tableView else { fatalError("Instance should only be a data source for itself") }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: self.viewModel.cellType.reuseIdentifier, for: indexPath) as? BookCell
         if let bookCell = cell {
@@ -85,7 +93,7 @@ extension BrowserView: UITableViewDataSource {
 extension BrowserView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard tableView === self else { fatalError("Instance should only be a delegate for itself") }
+        guard tableView === self.tableView else { fatalError("Instance should only be a delegate for itself") }
         
         self.viewModel.onSelect() // TODO: do something?
     }
@@ -105,6 +113,7 @@ private extension BrowserView {
             self.sendSubviewToBack(self.activityView)
         }
         self.activityView.alpha = display ? 1 : 0
+        self.isUserInteractionEnabled = display == false
     }
 }
 
@@ -132,7 +141,7 @@ extension BrowserView: BrowserViewModelDelegate {
             self.displayActivity(false)
         case .inactive:
             self.displayActivity(false)
-            self.reloadData()
+            self.tableView.reloadData()
         }
     }
 }
