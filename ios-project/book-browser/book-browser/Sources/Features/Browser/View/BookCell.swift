@@ -44,10 +44,16 @@ final class BookCell: UITableViewCell {
             self.titleLabel.topAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.topAnchor),
             self.titleLabel.leadingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.leadingAnchor),
             self.titleLabel.trailingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.trailingAnchor),
-            self.authorLabel.topAnchor.constraint(equalTo: self.titleLabel.layoutMarginsGuide.bottomAnchor),
+            self.authorLabel.topAnchor.constraint(equalTo: self.titleLabel.layoutMarginsGuide.bottomAnchor, constant: Layout.authorLabelTopInset),
             self.authorLabel.leadingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.leadingAnchor),
             self.authorLabel.trailingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.trailingAnchor),
             self.authorLabel.bottomAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.bottomAnchor)
         ])
     }
+}
+
+/// Private type wrapping appearance constants
+private enum Layout {
+    
+    static let authorLabelTopInset: CGFloat = 8.0
 }
