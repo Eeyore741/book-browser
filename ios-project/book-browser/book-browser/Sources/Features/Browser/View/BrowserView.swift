@@ -33,6 +33,7 @@ final class BrowserView: UITableView {
         self.register(self.viewModel.cellType, forCellReuseIdentifier: self.viewModel.cellType.reuseIdentifier)
         self.rowHeight = UITableView.automaticDimension
         self.tableFooterView = UIView(frame: CGRect.zero)
+        self.separatorInset = UIEdgeInsets.zero
     }
     
     override func layoutSubviews() {

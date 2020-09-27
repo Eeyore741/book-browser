@@ -28,7 +28,7 @@ final class BookCell: UITableViewCell {
     }()
     
     private var constraintsLayoutOnce: Bool = false
-    
+
     override func updateConstraints() {
         super.updateConstraints()
         
