@@ -24,7 +24,7 @@ final class InputFlowCoordinator: FlowCoordinator {
     
     public func start() {
         let model = InputViewModel()
-        model.backgroundColor = { UIColor.yellow }
+        model.backgroundColor = { UIColor.systemGray6 }
         model.textBackgroundColor = { UIColor.lightText }
         model.textColor = { UIColor.darkGray }
         model.onTextViewDone = { (text: String?) in

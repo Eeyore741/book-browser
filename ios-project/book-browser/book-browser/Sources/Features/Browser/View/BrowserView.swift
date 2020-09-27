@@ -51,7 +51,7 @@ final class BrowserView: UIView {
         ])
         
         self.activityView.translatesAutoresizingMaskIntoConstraints = false
-        self.activityView.backgroundColor = UIColor.red.withAlphaComponent(0.333)
+        self.activityView.backgroundColor = UIColor.systemGray4
         NSLayoutConstraint.activate([
             self.activityView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             self.activityView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
