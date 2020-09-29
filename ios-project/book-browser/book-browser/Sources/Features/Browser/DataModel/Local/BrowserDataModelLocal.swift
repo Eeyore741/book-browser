@@ -37,8 +37,8 @@ extension BrowserDataModelLocal: BrowserDataModel {
             }
             do {
                 let models = try JSONDecoder().decode([BrowserDataBook].self, from: jsonData)
-                let response = BrowserDataResponse(books: models, query: query)
-                self.state = BrowserDataModelState.inactive(response: response)
+                let browserDataResponse = BrowserDataResponse(books: models, query: query)
+                self.state = BrowserDataModelState.inactive(response: browserDataResponse)
             } catch {
                 let error = BrowserDataError.parse
                 self.state = BrowserDataModelState.error(error: error)
