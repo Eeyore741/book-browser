@@ -13,7 +13,7 @@ struct BookListResponse {
     
     let query: String
     let filter: String
-    let count: Int
+    let nextPageToken: String
     let totalCount: Int
     let items: [BrowserDataBook]
 }

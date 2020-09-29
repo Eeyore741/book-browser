@@ -11,9 +11,9 @@ import Foundation
 /// Basic book model
 struct BrowserDataBook {
     let id: String
-    let author: String
+    let author: String?
     let title: String
-    let imageURL: String
+    let imageURL: String?
 }
 
 /// Conforming book model to `Codable` getting functionality of
