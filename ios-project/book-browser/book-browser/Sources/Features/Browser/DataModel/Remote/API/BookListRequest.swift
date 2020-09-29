@@ -30,11 +30,11 @@ extension BookListRequest {
     ///   - query: String used for in search of response items
     ///   - page: Search result page
     /// - Throws: `BrowserDataError` in case of unable to build `URLRequest`
-    init(query: String, page: Int) throws {
-        self.query = query
-        self.page = page
+    init(query: String?, page: Int?) throws {
+        self.query = query ?? String()
+        self.page = page ?? 0
         
-        guard let url = URL(string: "https://api.storytel.net/search?query=\(query)&page=\(page)") else {
+        guard let url = URL(string: "https://api.storytel.net/search?query=\(self.query)&page=\(self.page)") else {
             throw BrowserDataError.request
         }
         self.request = URLRequest(url: url)
