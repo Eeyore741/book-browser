@@ -28,17 +28,16 @@ extension BrowserDataModelRemote: BrowserDataModel {
         let config = URLSessionConfiguration.ephemeral
         let session = URLSession.shared //URLSession(configuration: config)
         do {
-            let url = try self.buildURLWithQuery(query)
-            let reques = URLRequest(url: url)
-            session.dataTask(with: reques) { (data: Data?, response: URLResponse?, error: Error?) in
+            let bookListRequest = try BookListRequest(query: query, page: 0)
+            session.dataTask(with: bookListRequest.request) { (data: Data?, response: URLResponse?, error: Error?) in
                 guard let data = data else {
                     return self.state = BrowserDataModelState.error(error: BrowserDataError.fetch)
                 }
                 let decoder = JSONDecoder()
                 do {
-                    let books = try decoder.decode([BrowserDataBook].self, from: data)
-                    let response = BrowserDataResponse.init(books: books, query: query)
-                    self.state = BrowserDataModelState.inactive(response: response)
+                    let bookListResponse = try decoder.decode(BookListResponse.self, from: data)
+                    let browserDataResponse = BrowserDataResponse.init(books: bookListResponse.items, query: query)
+                    self.state = BrowserDataModelState.inactive(response: browserDataResponse)
                 } catch {
                     self.state = BrowserDataModelState.error(error: BrowserDataError.parse)
                 }
@@ -46,16 +45,5 @@ extension BrowserDataModelRemote: BrowserDataModel {
         } catch {
             self.state = BrowserDataModelState.error(error: BrowserDataError.request)
         }
-    }
-}
-
-/// Type helper private extension
-private extension BrowserDataModelRemote {
-    
-    func buildURLWithQuery(_ query: String?) throws -> URL {
-        guard let url = URL(string: "https://api.storytel.net/search?query=\(query ?? "")") else {
-            throw BrowserDataError.request
-        }
-        return url
     }
 }
