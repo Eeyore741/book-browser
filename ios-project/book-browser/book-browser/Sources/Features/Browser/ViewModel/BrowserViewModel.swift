@@ -76,7 +76,12 @@ extension BrowserViewModel: BrowserDataModelDelegate {
             if let response = response {
                 self.books += response.books
             }
-            self.state = BrowserViewModelState.inactive
+            
+            if self.books.isEmpty {
+                self.state = BrowserViewModelState.alert(message: "Empty")
+            } else {
+                self.state = BrowserViewModelState.inactive
+            }
         }
     }
 }
