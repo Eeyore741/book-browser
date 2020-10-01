@@ -161,14 +161,16 @@ extension BrowserView: BrowserViewModelDelegate {
     func viewModelStateChanged(_ model: BrowserViewModel) {
         guard model === self.viewModel else { fatalError("Instance should only be delegate for own model") }
         
-        switch self.viewModel.state {
-        case .active:
-            self.displayActivity(true)
-        case .alert(_):
-            self.displayActivity(false)
-        case .inactive:
-            self.displayActivity(false)
-            self.tableView.reloadData()
+        DispatchQueue.main.async {
+            switch self.viewModel.state {
+            case .active:
+                self.displayActivity()
+            case .alert(let message):
+                self.displayAlert(message)
+            case .inactive:
+                self.displayList()
+                self.tableView.reloadData()
+            }
         }
     }
 }
