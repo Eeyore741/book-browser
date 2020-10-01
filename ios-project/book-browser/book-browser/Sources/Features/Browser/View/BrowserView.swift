@@ -15,6 +15,7 @@ final class BrowserView: UIView {
     
     private let tableView: UITableView = UITableView(frame: CGRect.zero)
     private let activityView: ActivityView = ActivityView()
+    private let alertView: UILabel = UILabel()
     private var subviewsLayoutOnce: Bool = false
     
     public let viewModel: BrowserViewModel
@@ -30,6 +31,9 @@ final class BrowserView: UIView {
         self.backgroundColor = self.viewModel.backgroundColor
         self.addSubview(self.activityView)
         self.addSubview(self.tableView)
+        self.addSubview(self.alertView)
+        self.alertView.numberOfLines = 0
+        self.alertView.textColor = UIColor.systemGray4
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(self.viewModel.cellType, forCellReuseIdentifier: self.viewModel.cellType.reuseIdentifier)
@@ -57,6 +61,12 @@ final class BrowserView: UIView {
             self.activityView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.activityView.widthAnchor.constraint(equalToConstant: 90.0),
             self.activityView.heightAnchor.constraint(equalToConstant: 90.0)
+        ])
+        
+        self.alertView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.alertView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.alertView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
     
