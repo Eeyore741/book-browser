@@ -114,16 +114,33 @@ private extension BrowserView {
     
     /// Lock/unlock view for user interaction with displaying of activity indicator
     /// - Parameter display: Lock or unlock
-    func displayActivity(_ display: Bool) {
+    func displayActivity() {
         guard self.activityView.superview != nil else { return }
+        self.hideAllBut(self.activityView)
         
-        if display {
-            self.bringSubviewToFront(self.activityView)
-        } else {
-            self.sendSubviewToBack(self.activityView)
+        self.bringSubviewToFront(self.activityView)
+    }
+    
+    func displayAlert(_ alert: String) {
+        guard self.alertView.superview != nil else { return }
+        self.hideAllBut(self.alertView)
+        
+        self.alertView.text = alert
+        self.bringSubviewToFront(self.alertView)
+    }
+    
+    func displayList() {
+        guard self.tableView.superview != nil else { return }
+        self.hideAllBut(self.tableView)
+        
+        self.bringSubviewToFront(self.tableView)
+    }
+    
+    func hideAllBut(_ exception: UIView) {
+        self.subviews.forEach { (view: UIView) in
+            view.alpha = view === exception ? 1.0 : 0.0
+            view.isUserInteractionEnabled = view === exception ? true : false
         }
-        self.activityView.alpha = display ? 1 : 0
-        self.isUserInteractionEnabled = display == false
     }
 }
 
