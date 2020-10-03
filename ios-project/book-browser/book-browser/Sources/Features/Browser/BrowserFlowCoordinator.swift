@@ -27,7 +27,7 @@ final class BrowserFlowCoordinator: FlowCoordinator {
     }
     
     public func start() {
-        let dataModel = BrowserDataModelLocal()
+        let dataModel = BrowserDataModelRemote()//BrowserDataModelLocal()
         let viewModel = BrowserViewModel(dataModel: dataModel)
         viewModel.searchText = self.query
         let view = BrowserView(viewModel: viewModel)
