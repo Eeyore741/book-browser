@@ -124,6 +124,8 @@ private extension BrowserView {
         self.bringSubviewToFront(self.activityView)
     }
     
+    /// Present view with message in front
+    /// - Parameter alert: Text in the center of view
     func displayAlert(_ alert: String) {
         guard self.alertView.superview != nil else { return }
         self.hideAllBut(self.alertView)
@@ -132,6 +134,7 @@ private extension BrowserView {
         self.bringSubviewToFront(self.alertView)
     }
     
+    /// Present tableView
     func displayList() {
         guard self.tableView.superview != nil else { return }
         self.hideAllBut(self.tableView)
@@ -139,6 +142,8 @@ private extension BrowserView {
         self.bringSubviewToFront(self.tableView)
     }
     
+    /// Hide all subviews setting `alpha` to `0` and disabling user interaction
+    /// - Parameter exception: Subview that will not be affected by the function
     func hideAllBut(_ exception: UIView) {
         self.subviews.forEach { (view: UIView) in
             view.alpha = view === exception ? 1.0 : 0.0
