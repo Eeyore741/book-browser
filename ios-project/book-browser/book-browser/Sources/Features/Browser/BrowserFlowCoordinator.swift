@@ -32,7 +32,7 @@ final class BrowserFlowCoordinator: FlowCoordinator {
         viewModel.searchText = self.query
         let view = BrowserView(viewModel: viewModel)
         let controller = BasicViewController(view: view)
-        controller.navigationItem.title = "List"
+        controller.navigationItem.title = "Search: \(self.query.unsafelyUnwrapped)"
         self.parentController?.pushViewController(controller, animated: true)
     }
     
