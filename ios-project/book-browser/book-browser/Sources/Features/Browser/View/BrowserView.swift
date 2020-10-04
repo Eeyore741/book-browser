@@ -38,8 +38,12 @@ final class BrowserView: UIView {
         self.tableView.delegate = self
         self.tableView.register(self.viewModel.cellType, forCellReuseIdentifier: self.viewModel.cellType.reuseIdentifier)
         self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tableView.separatorInset = UIEdgeInsets.zero
+        self.tableView.tableFooterView = {
+            let view = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+            view.startAnimating()
+            return view
+        }()
     }
     
     override func layoutSubviews() {
@@ -89,10 +93,9 @@ extension BrowserView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard tableView === self.tableView else { fatalError("Instance should only be a data source for itself") }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.viewModel.cellType.reuseIdentifier, for: indexPath) as? BookCell
-        if let bookCell = cell {
-            try? self.viewModel.fillCell(bookCell, withModelAtIndex: indexPath.row)
-            return bookCell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: self.viewModel.cellType.reuseIdentifier, for: indexPath) as? BookCell {
+            try? self.viewModel.fillCell(cell, withModelAtIndex: indexPath.row)
+            return cell
         }
         fatalError("Undefined cell type")
     }
