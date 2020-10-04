@@ -29,7 +29,7 @@ final class ActivityView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.layer.cornerRadius = self.frame.size.width / 10
+        self.layer.cornerRadius = self.frame.size.width / 10.0
         
         guard self.subviewsLayoutOnce == false else { return }
         defer { self.subviewsLayoutOnce = true }

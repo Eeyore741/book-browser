@@ -11,7 +11,7 @@ import UIKit
 /// Simple cell type to display title and author
 final class BookCell: UITableViewCell {
     
-    static override var requiresConstraintBasedLayout: Bool { true }
+    class override var requiresConstraintBasedLayout: Bool { true }
     
     lazy var titleLabel: UILabel = {
         let view = UILabel()
