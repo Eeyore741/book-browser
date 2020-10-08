@@ -12,7 +12,7 @@ import Foundation
 /// example: "https://api.storytel.net/search?query=harry&page=10."
 final class BrowserDataModelRemote {
     
-    var state: BrowserDataModelState = .inactive(response: nil) {
+    var state: BrowserDataModelState = .inactive(attributes: nil) {
         didSet {
             guard self.state != oldValue else { return }
             self.delegate?.dataModelStateChanged(self)
@@ -25,19 +25,19 @@ final class BrowserDataModelRemote {
 extension BrowserDataModelRemote: BrowserDataModel {
     
     func fetch(query: String?) {
-        let config = URLSessionConfiguration.ephemeral
-        let session = URLSession.shared //URLSession(configuration: config)
+        let session = URLSession.shared
         do {
             let bookListRequest = try BookListRequest(query: query, page: 0)
             session.dataTask(with: bookListRequest.request) { (data: Data?, response: URLResponse?, error: Error?) in
                 guard let data = data else {
                     return self.state = BrowserDataModelState.error(error: BrowserDataError.fetch)
                 }
-                let decoder = JSONDecoder()
                 do {
-                    let bookListResponse = try decoder.decode(BookListResponse.self, from: data)
-                    let browserDataResponse = BrowserDataResponse.init(books: bookListResponse.items, query: query)
-                    self.state = BrowserDataModelState.inactive(response: browserDataResponse)
+                    let bookListResponse = try JSONDecoder().decode(BookListResponse.self, from: data)
+                    let stateAttributes = (query: bookListResponse.query,
+                                           books: bookListResponse.items,
+                                           nextPageToken: bookListResponse.nextPageToken)
+                    self.state = BrowserDataModelState.inactive(attributes: stateAttributes)
                 } catch {
                     self.state = BrowserDataModelState.error(error: BrowserDataError.parse)
                 }
