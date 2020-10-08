@@ -13,7 +13,7 @@ import Foundation
 struct BookListRequest {
     
     let query: String
-    let page: Int
+    let page: String
     let request: URLRequest
     
     /// Hiding unsupported initializing interface
@@ -30,9 +30,9 @@ extension BookListRequest {
     ///   - query: String used for in search of response items
     ///   - page: Search result page
     /// - Throws: `BrowserDataError` in case of unable to build `URLRequest`
-    init(query: String?, page: Int?) throws {
+    init(query: String?, page: String?) throws {
         self.query = query ?? String()
-        self.page = page ?? 0
+        self.page = page ?? String()
         
         guard let url = URL(string: "https://api.storytel.net/search?query=\(self.query)&page=\(self.page)") else {
             throw BrowserDataError.request
