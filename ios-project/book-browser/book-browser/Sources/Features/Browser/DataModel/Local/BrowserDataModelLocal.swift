@@ -11,7 +11,7 @@ import Foundation
 /// Local dummy data model fetching static data
 final class BrowserDataModelLocal {
     
-    var state: BrowserDataModelState = .inactive(response: nil) {
+    var state: BrowserDataModelState = .inactive(attributes: nil) {
         didSet {
             guard self.state != oldValue else { return }
             self.delegate?.dataModelStateChanged(self)
@@ -38,7 +38,8 @@ extension BrowserDataModelLocal: BrowserDataModel {
             do {
                 let models = try JSONDecoder().decode([BrowserDataBook].self, from: jsonData)
                 let browserDataResponse = BrowserDataResponse(books: models, query: query)
-                self.state = BrowserDataModelState.inactive(response: browserDataResponse)
+                let stateAttributes = (query: browserDataResponse.query, books: models, nextPageToken: "any")
+                self.state = BrowserDataModelState.inactive(attributes: stateAttributes)
             } catch {
                 let error = BrowserDataError.parse
                 self.state = BrowserDataModelState.error(error: error)
