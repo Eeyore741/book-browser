@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias BrowserDataModelInactiveAttributes = (query: String, books: [BrowserDataBook], nextPageToken: String)
+
 /// Type representing state of data model instance lifecycle
 enum BrowserDataModelState {
     
