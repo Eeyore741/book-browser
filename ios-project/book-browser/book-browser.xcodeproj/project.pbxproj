@@ -147,21 +147,21 @@
 			path = Browser;
 			sourceTree = "<group>";
 		};
-		FA3730DE24EB19D20091AEA0 /* Local */ = {
+		FA3730DE24EB19D20091AEA0 /* LocalImplementation */ = {
 			isa = PBXGroup;
 			children = (
 				FA3730E024EB1A0D0091AEA0 /* BrowserDataModelLocal.swift */,
 			);
-			path = Local;
+			path = LocalImplementation;
 			sourceTree = "<group>";
 		};
-		FA3730DF24EB19D80091AEA0 /* Remote */ = {
+		FA3730DF24EB19D80091AEA0 /* RemoteImplementation */ = {
 			isa = PBXGroup;
 			children = (
 				FA9DF11D2523C353007A995A /* API */,
 				FA9DF11925211ABE007A995A /* BrowserDataModelRemote.swift */,
 			);
-			path = Remote;
+			path = RemoteImplementation;
 			sourceTree = "<group>";
 		};
 		FA458C5824F4471000106C40 /* View */ = {
@@ -303,14 +303,14 @@
 		FABE89E324EB11A50012D9C6 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				FA3730DE24EB19D20091AEA0 /* Local */,
-				FA3730DF24EB19D80091AEA0 /* Remote */,
 				FABE89DF24EB0F770012D9C6 /* BrowserDataModel.swift */,
 				FA4BBCA924EEF48C00957A34 /* BrowserDataModelState.swift */,
 				FABE89E624EB12920012D9C6 /* BrowserDataResult.swift */,
 				FABE89E424EB122A0012D9C6 /* BrowserDataError.swift */,
 				FABE89E124EB10A90012D9C6 /* BrowserDataBook.swift */,
 				FAB157BF24FAE05800FE4B1C /* BrowserDataResponse.swift */,
+				FA3730DE24EB19D20091AEA0 /* LocalImplementation */,
+				FA3730DF24EB19D80091AEA0 /* RemoteImplementation */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";

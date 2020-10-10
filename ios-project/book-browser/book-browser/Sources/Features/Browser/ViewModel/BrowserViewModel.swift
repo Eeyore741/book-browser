@@ -72,9 +72,9 @@ extension BrowserViewModel: BrowserDataModelDelegate {
         case .error(let error):
             let errorMessage = String(withBrowserDataError: error)
             self.state = BrowserViewModelState.alert(message: errorMessage)
-        case .inactive(let response):
-            if let response = response {
-                self.books += response.books
+        case .inactive(let attributes):
+            if let attributes = attributes {
+                self.books += attributes.books
             }
             
             if self.books.isEmpty {
