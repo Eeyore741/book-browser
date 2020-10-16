@@ -57,8 +57,24 @@ final class BrowserViewModel {
     }
     
     func refresh() {
+        self.clear()
         self.state = BrowserViewModelState.active
         self.dataModel.fetch(query: self.searchText)
+    }
+    
+    func fetch() {
+        self.state = BrowserViewModelState.active
+        self.dataModel.fetch(query: self.searchText)
+    }
+}
+
+/// Private helper methods extension
+private extension BrowserViewModel {
+    
+    func clear() {
+        self.state = BrowserViewModelState.active
+        self.books.removeAll()
+        self.state = BrowserViewModelState.inactive
     }
 }
 
