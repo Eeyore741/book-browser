@@ -63,7 +63,7 @@ final class BrowserViewModel {
     }
     
     func fetch() {
-        self.state = BrowserViewModelState.active
+        self.state = BrowserViewModelState.locked
         self.dataModel.fetch(query: self.searchText)
     }
 }
