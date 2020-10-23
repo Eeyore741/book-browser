@@ -138,8 +138,9 @@ private extension BrowserView {
     }
     
     /// Present tableView
-    func displayList() {
+    func displayList(_ locked: Bool = false) {
         guard self.tableView.superview != nil else { return }
+        self.isUserInteractionEnabled = !locked
         self.hideAllBut(self.tableView)
         
         self.bringSubviewToFront(self.tableView)
@@ -176,6 +177,8 @@ extension BrowserView: BrowserViewModelDelegate {
             switch self.viewModel.state {
             case .active:
                 self.displayActivity()
+            case .locked:
+                self.displayList(true)
             case .alert(let message):
                 self.displayAlert(message)
             case .inactive:
