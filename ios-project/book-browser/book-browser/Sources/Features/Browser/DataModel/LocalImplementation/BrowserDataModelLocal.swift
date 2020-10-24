@@ -11,6 +11,8 @@ import Foundation
 /// Local dummy data model fetching static data
 final class BrowserDataModelLocal {
     
+    var fetchDelay: TimeInterval = 0
+    
     var state: BrowserDataModelState = .inactive(attributes: nil) {
         didSet {
             guard self.state != oldValue else { return }
@@ -27,7 +29,7 @@ extension BrowserDataModelLocal: BrowserDataModel {
 
     func fetch(query: String?) {
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.fetchDelay) {
             
             self.state = BrowserDataModelState.active
             guard let jsonData = BrowserDataModelLocal.dummyJSON.data(using: String.Encoding.utf8) else {
