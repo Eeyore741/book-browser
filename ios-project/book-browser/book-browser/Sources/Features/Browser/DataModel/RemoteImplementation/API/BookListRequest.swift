@@ -37,6 +37,6 @@ extension BookListRequest {
         guard let url = URL(string: "https://api.storytel.net/search?query=\(self.query)&page=\(self.page)") else {
             throw BrowserDataError.request
         }
-        self.request = URLRequest(url: url)
+        self.request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 2)
     }
 }
