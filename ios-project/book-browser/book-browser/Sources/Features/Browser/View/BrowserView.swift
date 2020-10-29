@@ -34,6 +34,8 @@ final class BrowserView: UIView {
         self.addSubview(self.alertView)
         self.alertView.numberOfLines = 0
         self.alertView.textColor = UIColor.systemGray4
+        self.alertView.isUserInteractionEnabled = true
+        self.alertView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(BrowserView.onAlertViewClick)))
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(self.viewModel.cellType, forCellReuseIdentifier: self.viewModel.cellType.reuseIdentifier)
@@ -77,6 +79,11 @@ final class BrowserView: UIView {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc
+    private func onAlertViewClick(_ sender: Any) {
+        self.viewModel.onAlertClick()
     }
 }
 
