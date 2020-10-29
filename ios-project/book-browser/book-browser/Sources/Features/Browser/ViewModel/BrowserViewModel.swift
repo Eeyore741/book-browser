@@ -42,6 +42,7 @@ final class BrowserViewModel {
     // Callbacks
     var onClose: (() -> Void) = { }
     var onSelect: (() -> Void) = { }
+    lazy var onAlertClick: (() -> Void) = { self.refresh() }
     
     var numberOfConsumableItems: Int { self.books.count }
     

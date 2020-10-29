@@ -158,7 +158,6 @@ private extension BrowserView {
     func hideAllBut(_ exception: UIView) {
         self.subviews.forEach { (view: UIView) in
             view.alpha = view === exception ? 1.0 : 0.0
-            view.isUserInteractionEnabled = view === exception ? true : false
         }
     }
 }
