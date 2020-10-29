@@ -25,6 +25,7 @@ final class BrowserDataModelRemote {
 extension BrowserDataModelRemote: BrowserDataModel {
     
     func fetch(query: String?) {
+        if case BrowserDataModelState.error(_) = self.state { self.state = BrowserDataModelState.inactive(attributes: nil) }
         let session = URLSession.shared
         do {
             let bookListRequest = try BookListRequest(withBrowserDataModelState: self.state, andQuery: query)
