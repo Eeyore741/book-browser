@@ -14,14 +14,18 @@ final class BrowserDataModelLocalTests: XCTestCase {
     
     /// Test for models fetch function expected to succeed
     func testFetchFine() {
-        let sut0 = BrowserDataModelLocal()
         let expectation = XCTestExpectation(description: "Wait for sut0.fetch completion")
-        sut0.fetch(query: "any") { (result: BrowserDataResult) in
-            guard case .success(_) = result else { return XCTFail("Sut0.fetch result error") }
-            expectation.fulfill()
+        let sut0 = BrowserDataModelLocal()
+        let delegate = DummyBrowserDataModelDelegate()
+        sut0.delegate = delegate
+        delegate.onDataModelStateChanged = { (model: BrowserDataModel) in
+            if case let .inactive(attributes) = model.state {
+                _ = try? XCTUnwrap(attributes, "Attributes should present")
+                expectation.fulfill()
+            }
         }
-        let result = XCTWaiter.wait(for: [expectation], timeout: 0.1)
-        XCTAssert(result == .completed, "Sut0.fetch result should be complete")
+        sut0.fetch(query: "any")
+        self.wait(for: [expectation], timeout: 0.1)
     }
     
     /// Test for data to be instantiated from helper static string
