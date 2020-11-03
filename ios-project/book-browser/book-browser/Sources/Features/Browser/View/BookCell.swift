@@ -27,6 +27,14 @@ final class BookCell: UITableViewCell {
         return view
     }()
     
+    lazy var coverView: UIImageView = {
+        let view = UIImageView()
+        view.clipsToBounds = true
+        view.contentMode = UIView.ContentMode.scaleAspectFill
+        view.backgroundColor = .green
+        return view
+    }()
+    
     private var constraintsLayoutOnce: Bool = false
 
     override func updateConstraints() {
@@ -35,17 +43,22 @@ final class BookCell: UITableViewCell {
         guard self.constraintsLayoutOnce == false else { return }
         defer { self.constraintsLayoutOnce = true }
         
-        [self.titleLabel, self.authorLabel].forEach { (subview: UILabel) in
+        [self.titleLabel, self.authorLabel, self.coverView].forEach { (subview: UIView) in
             subview.translatesAutoresizingMaskIntoConstraints = false
             self.contentView.addSubview(subview)
         }
         
         NSLayoutConstraint.activate([
+            self.coverView.widthAnchor.constraint(equalToConstant: Layout.coverViewSide),
+            self.coverView.heightAnchor.constraint(equalToConstant: Layout.coverViewSide),
+            self.coverView.centerYAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.centerYAnchor),
+            self.coverView.leadingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.leadingAnchor),
+            self.coverView.topAnchor.constraint(equalToSystemSpacingBelow: self.contentView.topAnchor, multiplier: 1.0),
             self.titleLabel.topAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.topAnchor),
-            self.titleLabel.leadingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.leadingAnchor),
+            self.titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: self.coverView.layoutMarginsGuide.trailingAnchor, multiplier: 2.0),
             self.titleLabel.trailingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.trailingAnchor),
             self.authorLabel.topAnchor.constraint(equalTo: self.titleLabel.layoutMarginsGuide.bottomAnchor, constant: Layout.authorLabelTopInset),
-            self.authorLabel.leadingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.leadingAnchor),
+            self.authorLabel.leadingAnchor.constraint(equalTo: self.coverView.safeAreaLayoutGuide.trailingAnchor),
             self.authorLabel.trailingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.trailingAnchor),
             self.authorLabel.bottomAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.bottomAnchor)
         ])
@@ -56,4 +69,5 @@ final class BookCell: UITableViewCell {
 private enum Layout {
     
     static let authorLabelTopInset: CGFloat = 8.0
+    static let coverViewSide: CGFloat = 44.0
 }
