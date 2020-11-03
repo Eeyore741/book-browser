@@ -14,7 +14,9 @@
 		FA3730E124EB1A0D0091AEA0 /* BrowserDataModelLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3730E024EB1A0D0091AEA0 /* BrowserDataModelLocal.swift */; };
 		FA3730E524EC64B80091AEA0 /* BrowserDataModelLocalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3730E424EC64B80091AEA0 /* BrowserDataModelLocalTests.swift */; };
 		FA40C3F025509B9A001288A6 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40C3EF25509B9A001288A6 /* ImageProvider.swift */; };
+		FA40C3F325509D86001288A6 /* LocalImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40C3F225509D86001288A6 /* LocalImageProvider.swift */; };
 		FA40C3F525509F23001288A6 /* nature.png in Resources */ = {isa = PBXBuildFile; fileRef = FA40C3F425509F23001288A6 /* nature.png */; };
+		FA40C3F725509FC9001288A6 /* LocalImageProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40C3F625509FC9001288A6 /* LocalImageProviderError.swift */; };
 		FA458C5A24F4472300106C40 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA458C5924F4472300106C40 /* BookCell.swift */; };
 		FA4BBCAA24EEF48C00957A34 /* BrowserDataModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BBCA924EEF48C00957A34 /* BrowserDataModelState.swift */; };
 		FA4BBCAD24EF064A00957A34 /* BrowserViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BBCAC24EF064A00957A34 /* BrowserViewModelState.swift */; };
@@ -70,7 +72,9 @@
 		FA3730E024EB1A0D0091AEA0 /* BrowserDataModelLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataModelLocal.swift; sourceTree = "<group>"; };
 		FA3730E424EC64B80091AEA0 /* BrowserDataModelLocalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataModelLocalTests.swift; sourceTree = "<group>"; };
 		FA40C3EF25509B9A001288A6 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		FA40C3F225509D86001288A6 /* LocalImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageProvider.swift; sourceTree = "<group>"; };
 		FA40C3F425509F23001288A6 /* nature.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nature.png; sourceTree = "<group>"; };
+		FA40C3F625509FC9001288A6 /* LocalImageProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageProviderError.swift; sourceTree = "<group>"; };
 		FA458C5924F4472300106C40 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		FA4BBCA924EEF48C00957A34 /* BrowserDataModelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataModelState.swift; sourceTree = "<group>"; };
 		FA4BBCAC24EF064A00957A34 /* BrowserViewModelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewModelState.swift; sourceTree = "<group>"; };
@@ -178,6 +182,15 @@
 				FA40C3F125509D60001288A6 /* LocalImageProvider */,
 			);
 			path = ImageProvider;
+			sourceTree = "<group>";
+		};
+		FA40C3F125509D60001288A6 /* LocalImageProvider */ = {
+			isa = PBXGroup;
+			children = (
+				FA40C3F225509D86001288A6 /* LocalImageProvider.swift */,
+				FA40C3F625509FC9001288A6 /* LocalImageProviderError.swift */,
+			);
+			path = LocalImageProvider;
 			sourceTree = "<group>";
 		};
 		FA458C5824F4471000106C40 /* View */ = {
@@ -490,6 +503,8 @@
 				FA1344572512A638006848AC /* UILockable.swift in Sources */,
 				FA6E247124B24221009F7A91 /* BasicViewController.swift in Sources */,
 				FA9DF11F2523C364007A995A /* BookListRequest.swift in Sources */,
+				FA40C3F325509D86001288A6 /* LocalImageProvider.swift in Sources */,
+				FA40C3F725509FC9001288A6 /* LocalImageProviderError.swift in Sources */,
 				FA6E246B24B235E4009F7A91 /* InputViewModel.swift in Sources */,
 				FA6E246F24B239A3009F7A91 /* InputView.swift in Sources */,
 				FA9311BA24AF862F0057557D /* FlowCoordinator.swift in Sources */,
