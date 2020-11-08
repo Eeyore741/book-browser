@@ -57,6 +57,9 @@ final class BrowserViewModel {
         let model = self.books[index]
         cell.authorLabel.text = model.author
         cell.titleLabel.text = model.title
+        if let string = model.cover?.url, let url = URL(string: string) {
+            self.imageProvider.fill(imageView: cell.coverView, withImageByUrl: url)
+        }
     }
     
     func refresh() {
