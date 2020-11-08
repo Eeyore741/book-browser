@@ -18,6 +18,6 @@ struct BookListResponse {
     let items: [BrowserDataBook]
 }
 
-/// Conforming book model to `Codable` getting functionality of
+/// Conforming book model to `Decodable` getting functionality of
 /// decoding model from raw data
 extension BookListResponse: Decodable { }

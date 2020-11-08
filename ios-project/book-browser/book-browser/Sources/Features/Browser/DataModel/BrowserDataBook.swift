@@ -13,7 +13,7 @@ struct BrowserDataBook {
     let id: String
     let author: String?
     let title: String
-    let imageURL: String?
+    let cover: Cover?
 }
 
 /// Conforming book model to `Codable` getting functionality of
@@ -22,3 +22,11 @@ extension BrowserDataBook: Codable { }
 
 /// Conforming book model to `Equatable` to be able to compare instances and types with generics filled with `BrowserDataBook`
 extension BrowserDataBook: Equatable { }
+
+struct Cover {
+    var url: String?
+}
+
+extension Cover: Codable { }
+
+extension Cover: Equatable { }
