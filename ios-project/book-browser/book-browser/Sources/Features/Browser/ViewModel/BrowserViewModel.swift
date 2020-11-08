@@ -31,6 +31,7 @@ final class BrowserViewModel {
     // Data
     private var dataModel: BrowserDataModel
     private var books: [BrowserDataBook] = [BrowserDataBook]()
+    private var imageProvider: ImageProvider
     
     // Appearance
     var backgroundColor: UIColor = UIColor.white
@@ -46,7 +47,8 @@ final class BrowserViewModel {
     
     var numberOfConsumableItems: Int { self.books.count }
     
-    init(dataModel: BrowserDataModel) {
+    init(dataModel: BrowserDataModel, imageProvider: ImageProvider) {
+        self.imageProvider = imageProvider
         self.dataModel = dataModel
         self.dataModel.delegate = self
     }
