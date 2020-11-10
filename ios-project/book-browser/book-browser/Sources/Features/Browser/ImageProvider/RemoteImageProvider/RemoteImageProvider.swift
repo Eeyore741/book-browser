@@ -11,16 +11,28 @@ import UIKit
 final class RemoteImageProvider {
     
     var session: URLSession
+    var cache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
     
     init(session: URLSession) {
         self.session = session
     }
     
+    func cachedImage(forUrl url: URL) -> UIImage? {
+        self.cache.object(forKey: NSString(string: url.absoluteString))
+    }
+    
+    func cacheImage(_ image: UIImage, forUrl url: URL) {
+        self.cache.setObject(image, forKey: NSString(string: url.absoluteString))
+    }
 }
 
 extension RemoteImageProvider: ImageProvider {
     
     func fill(imageView: UIImageView, withImageByUrl url: URL) {
+        if let cachedImage = self.cachedImage(forUrl: url) {
+            return imageView.image = cachedImage
+        }
+        
         let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 13)
         session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             
@@ -31,6 +43,7 @@ extension RemoteImageProvider: ImageProvider {
                 guard let image = UIImage(data: data) else {
                     fatalError("unable to init image")
                 }
+                self.cacheImage(image, forUrl: url)
                 DispatchQueue.main.async { imageView.image = image }
             default:
                 fatalError("undefined")
