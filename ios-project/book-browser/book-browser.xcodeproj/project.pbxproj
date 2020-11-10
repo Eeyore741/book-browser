@@ -10,6 +10,7 @@
 		FA1344572512A638006848AC /* UILockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1344562512A638006848AC /* UILockable.swift */; };
 		FA13F9EA24AF8F9E0071FE18 /* InputFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */; };
 		FA13F9EC24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */; };
+		FA23283D25587D6A00C0CBDD /* RemoteImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23283C25587D6A00C0CBDD /* RemoteImageProvider.swift */; };
 		FA2FBFC82505628B006AC8EF /* UILoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FBFC72505628B006AC8EF /* UILoadable.swift */; };
 		FA3730E124EB1A0D0091AEA0 /* BrowserDataModelLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3730E024EB1A0D0091AEA0 /* BrowserDataModelLocal.swift */; };
 		FA3730E524EC64B80091AEA0 /* BrowserDataModelLocalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3730E424EC64B80091AEA0 /* BrowserDataModelLocalTests.swift */; };
@@ -68,6 +69,7 @@
 		FA1344562512A638006848AC /* UILockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILockable.swift; sourceTree = "<group>"; };
 		FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserFlowCoordinator.swift; sourceTree = "<group>"; };
+		FA23283C25587D6A00C0CBDD /* RemoteImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageProvider.swift; sourceTree = "<group>"; };
 		FA2FBFC72505628B006AC8EF /* UILoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoadable.swift; sourceTree = "<group>"; };
 		FA3730E024EB1A0D0091AEA0 /* BrowserDataModelLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataModelLocal.swift; sourceTree = "<group>"; };
 		FA3730E424EC64B80091AEA0 /* BrowserDataModelLocalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataModelLocalTests.swift; sourceTree = "<group>"; };
@@ -158,6 +160,14 @@
 			path = Browser;
 			sourceTree = "<group>";
 		};
+		FA23283B25587D3400C0CBDD /* RemoteImageProvider */ = {
+			isa = PBXGroup;
+			children = (
+				FA23283C25587D6A00C0CBDD /* RemoteImageProvider.swift */,
+			);
+			path = RemoteImageProvider;
+			sourceTree = "<group>";
+		};
 		FA3730DE24EB19D20091AEA0 /* LocalImplementation */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +190,7 @@
 			children = (
 				FA40C3EF25509B9A001288A6 /* ImageProvider.swift */,
 				FA40C3F125509D60001288A6 /* LocalImageProvider */,
+				FA23283B25587D3400C0CBDD /* RemoteImageProvider */,
 			);
 			path = ImageProvider;
 			sourceTree = "<group>";
@@ -496,6 +507,7 @@
 				FA6E246D24B23840009F7A91 /* GenericViewController.swift in Sources */,
 				FAB157C024FAE05800FE4B1C /* BrowserDataResponse.swift in Sources */,
 				FA3730E124EB1A0D0091AEA0 /* BrowserDataModelLocal.swift in Sources */,
+				FA23283D25587D6A00C0CBDD /* RemoteImageProvider.swift in Sources */,
 				FA13F9EA24AF8F9E0071FE18 /* InputFlowCoordinator.swift in Sources */,
 				FA40C3F025509B9A001288A6 /* ImageProvider.swift in Sources */,
 				FA6B87FA24AF7F2B007005D7 /* SceneDelegate.swift in Sources */,
