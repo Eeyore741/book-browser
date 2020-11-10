@@ -10,19 +10,28 @@ import UIKit
 
 final class RemoteImageProvider {
     
-    var session: URLSession
-    var cache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
+    private let session: URLSession
+    private let imageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
+    private let taskCache: NSMapTable<UIImageView, URLSessionDataTask> = NSMapTable<UIImageView, URLSessionDataTask>()
     
     init(session: URLSession) {
         self.session = session
     }
     
     func cachedImage(forUrl url: URL) -> UIImage? {
-        self.cache.object(forKey: NSString(string: url.absoluteString))
+        self.imageCache.object(forKey: NSString(string: url.absoluteString))
     }
     
     func cacheImage(_ image: UIImage, forUrl url: URL) {
-        self.cache.setObject(image, forKey: NSString(string: url.absoluteString))
+        self.imageCache.setObject(image, forKey: NSString(string: url.absoluteString))
+    }
+    
+    func cachedTask(forImageView imageView: UIImageView) -> URLSessionDataTask? {
+        self.taskCache.object(forKey: imageView)
+    }
+    
+    func cacheTask(_ task: URLSessionDataTask, forImageView imageView: UIImageView) {
+        self.taskCache.setObject(task, forKey: imageView)
     }
 }
 
@@ -32,10 +41,11 @@ extension RemoteImageProvider: ImageProvider {
         if let cachedImage = self.cachedImage(forUrl: url) {
             return imageView.image = cachedImage
         }
+        self.cachedTask(forImageView: imageView)?.cancel()
         
         let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 13)
-        session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            
+        let task = self.session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            if let error = error as NSError?, error.code == -999 { return }
             switch (data, error) {
             case let (data, .some(error)) where data == nil:
                 fatalError(error.localizedDescription)
@@ -48,6 +58,8 @@ extension RemoteImageProvider: ImageProvider {
             default:
                 fatalError("undefined")
             }
-        }.resume()
+        }
+        self.cacheTask(task, forImageView: imageView)
+        task.resume()
     }
 }
