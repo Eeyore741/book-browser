@@ -11,9 +11,13 @@ import Foundation
 /// Basic book model
 struct BrowserDataBook {
     let id: String
-    let author: String?
+    let authors: [Author]?
     let title: String
     let cover: Cover?
+    
+    var authorNames: String? {
+        self.authors?.reduce("By ", { $0 + $1.name + " " })
+    }
 }
 
 /// Conforming book model to `Codable` getting functionality of
