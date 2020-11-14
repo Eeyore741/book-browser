@@ -24,9 +24,15 @@ extension BrowserDataBook: Codable { }
 extension BrowserDataBook: Equatable { }
 
 struct Cover {
-    var url: String?
+    let url: String?
 }
 
 extension Cover: Codable { }
-
 extension Cover: Equatable { }
+
+struct Author {
+    let name: String
+}
+
+extension Author: Codable { }
+extension Author: Equatable { }
