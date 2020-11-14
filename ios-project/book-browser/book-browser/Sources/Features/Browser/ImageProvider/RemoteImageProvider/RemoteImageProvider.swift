@@ -45,7 +45,7 @@ extension RemoteImageProvider: ImageProvider {
         
         let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 13)
         let task = self.session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            if let error = error as NSError?, error.code == -999 { return }
+            if let error = error as NSError?, error.code == .taskCanceledErrorCode { return }
             switch (data, error) {
             case let (data, .some(error)) where data == nil:
                 fatalError(error.localizedDescription)
@@ -62,4 +62,9 @@ extension RemoteImageProvider: ImageProvider {
         self.cacheTask(task, forImageView: imageView)
         task.resume()
     }
+}
+
+private extension Int {
+    
+    static let taskCanceledErrorCode: Self = -999
 }
