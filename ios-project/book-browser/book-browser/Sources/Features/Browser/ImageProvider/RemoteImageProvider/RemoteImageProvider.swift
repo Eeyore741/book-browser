@@ -8,12 +8,18 @@
 
 import UIKit
 
+/// Type provides functionality of fetching and caching remote images
+/// Single task for every `UIImageView` being cached
+/// Does not hold strog reference on `UIImageView` instances
 final class RemoteImageProvider {
     
-    private let session: URLSession
+    let session: URLSession
+    
     private let imageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
     private let taskCache: NSMapTable<UIImageView, URLSessionDataTask> = NSMapTable<UIImageView, URLSessionDataTask>()
     
+    /// Instantiate type with injection of `URLSession`
+    /// - Parameter session: `URLSession` sessions sintance to handle data tasks
     init(session: URLSession) {
         self.session = session
     }
@@ -33,6 +39,18 @@ final class RemoteImageProvider {
     func cacheTask(_ task: URLSessionDataTask, forImageView imageView: UIImageView) {
         self.taskCache.setObject(task, forKey: imageView)
     }
+    
+    func remoteDataTaskForImageView(_ imageView: UIImageView, withUrl url: URL) -> URLSessionDataTask {
+        let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 3)
+        let task = self.session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if let data = data as Data?, let image = UIImage(data: data) {
+                self.cacheImage(image, forUrl: url)
+                DispatchQueue.main.async { imageView.image = image }
+            }
+        }
+        return task
+    }
 }
 
 extension RemoteImageProvider: ImageProvider {
@@ -42,29 +60,8 @@ extension RemoteImageProvider: ImageProvider {
             return imageView.image = cachedImage
         }
         self.cachedTask(forImageView: imageView)?.cancel()
-        
-        let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 13)
-        let task = self.session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            if let error = error as NSError?, error.code == .taskCanceledErrorCode { return }
-            switch (data, error) {
-            case let (data, .some(error)) where data == nil:
-                fatalError(error.localizedDescription)
-            case let (.some(data), error) where error == nil:
-                guard let image = UIImage(data: data) else {
-                    fatalError("unable to init image")
-                }
-                self.cacheImage(image, forUrl: url)
-                DispatchQueue.main.async { imageView.image = image }
-            default:
-                fatalError("undefined")
-            }
-        }
+        let task = self.remoteDataTaskForImageView(imageView, withUrl: url)
         self.cacheTask(task, forImageView: imageView)
         task.resume()
     }
-}
-
-private extension Int {
-    
-    static let taskCanceledErrorCode: Self = -999
 }
