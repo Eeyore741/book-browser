@@ -27,18 +27,14 @@ final class BrowserFlowCoordinator: FlowCoordinator {
     }
     
     public func start() {
-        do {
-            let imageProvider = try LocalImageProvider()
-            let dataModel = BrowserDataModelRemote()
-            let viewModel = BrowserViewModel(dataModel: dataModel, imageProvider: imageProvider)
-            viewModel.searchText = self.query
-            let view = BrowserView(viewModel: viewModel)
-            let controller = BasicViewController(view: view)
-            controller.navigationItem.title = "Search: \(self.query.unsafelyUnwrapped)"
-            self.parentController?.pushViewController(controller, animated: true)
-        } catch {
-            fatalError(error.localizedDescription)
-        }
+        let imageProvider = RemoteImageProvider(session: URLSession.shared)
+        let dataModel = BrowserDataModelRemote()
+        let viewModel = BrowserViewModel(dataModel: dataModel, imageProvider: imageProvider)
+        viewModel.searchText = self.query
+        let view = BrowserView(viewModel: viewModel)
+        let controller = BasicViewController(view: view)
+        controller.navigationItem.title = "Search: \(self.query.unsafelyUnwrapped)"
+        self.parentController?.pushViewController(controller, animated: true)
     }
     
     public func finish() {
