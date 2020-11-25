@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Plain view controller wrapping view instances conforming to `UILoadable`
 final class BasicViewController<View: UIView & UILoadable>: UIViewController {
     
     private let rootView: View

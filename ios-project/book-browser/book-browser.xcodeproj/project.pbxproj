@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA1344572512A638006848AC /* UILockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1344562512A638006848AC /* UILockable.swift */; };
 		FA13F9EA24AF8F9E0071FE18 /* InputFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */; };
 		FA13F9EC24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */; };
 		FA23283D25587D6A00C0CBDD /* RemoteImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23283C25587D6A00C0CBDD /* RemoteImageProvider.swift */; };
@@ -29,7 +28,6 @@
 		FA6B880F24AF7F2D007005D7 /* book_browserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B880E24AF7F2D007005D7 /* book_browserTests.swift */; };
 		FA6B881A24AF7F2D007005D7 /* book_browserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B881924AF7F2D007005D7 /* book_browserUITests.swift */; };
 		FA6E246B24B235E4009F7A91 /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E246A24B235E4009F7A91 /* InputViewModel.swift */; };
-		FA6E246D24B23840009F7A91 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E246C24B23840009F7A91 /* GenericViewController.swift */; };
 		FA6E246F24B239A3009F7A91 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E246E24B239A3009F7A91 /* InputView.swift */; };
 		FA6E247124B24221009F7A91 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E247024B24221009F7A91 /* BasicViewController.swift */; };
 		FA6E247324B8F7B2009F7A91 /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E247224B8F7B2009F7A91 /* BrowserView.swift */; };
@@ -66,7 +64,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA1344562512A638006848AC /* UILockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILockable.swift; sourceTree = "<group>"; };
 		FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA23283C25587D6A00C0CBDD /* RemoteImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageProvider.swift; sourceTree = "<group>"; };
@@ -94,7 +91,6 @@
 		FA6B881924AF7F2D007005D7 /* book_browserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = book_browserUITests.swift; sourceTree = "<group>"; };
 		FA6B881B24AF7F2D007005D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA6E246A24B235E4009F7A91 /* InputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
-		FA6E246C24B23840009F7A91 /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		FA6E246E24B239A3009F7A91 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		FA6E247024B24221009F7A91 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		FA6E247224B8F7B2009F7A91 /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
@@ -288,12 +284,7 @@
 		FA9311B624AF85DC0057557D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				FA9311B924AF862F0057557D /* FlowCoordinator.swift */,
-				FA6E246C24B23840009F7A91 /* GenericViewController.swift */,
-				FA6E247024B24221009F7A91 /* BasicViewController.swift */,
-				FA2FBFC72505628B006AC8EF /* UILoadable.swift */,
-				FA1344562512A638006848AC /* UILockable.swift */,
-				FAAEE37F2517EB780074634C /* ActivityView.swift */,
+				FAF37E53256EE48B00C08952 /* UIHelpers */,
 				FA9311B824AF861B0057557D /* Root */,
 				FA9311B724AF86130057557D /* Features */,
 			);
@@ -363,6 +354,17 @@
 				FA3730DF24EB19D80091AEA0 /* RemoteImplementation */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		FAF37E53256EE48B00C08952 /* UIHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				FA9311B924AF862F0057557D /* FlowCoordinator.swift */,
+				FA6E247024B24221009F7A91 /* BasicViewController.swift */,
+				FA2FBFC72505628B006AC8EF /* UILoadable.swift */,
+				FAAEE37F2517EB780074634C /* ActivityView.swift */,
+			);
+			path = UIHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,7 +506,6 @@
 				FAAEE3802517EB780074634C /* ActivityView.swift in Sources */,
 				FA9DF11C2523C2CA007A995A /* BookListResponse.swift in Sources */,
 				FA6E247524B8F7D3009F7A91 /* BrowserViewModel.swift in Sources */,
-				FA6E246D24B23840009F7A91 /* GenericViewController.swift in Sources */,
 				FAB157C024FAE05800FE4B1C /* BrowserDataResponse.swift in Sources */,
 				FA3730E124EB1A0D0091AEA0 /* BrowserDataModelLocal.swift in Sources */,
 				FA23283D25587D6A00C0CBDD /* RemoteImageProvider.swift in Sources */,
@@ -512,7 +513,6 @@
 				FA40C3F025509B9A001288A6 /* ImageProvider.swift in Sources */,
 				FA6B87FA24AF7F2B007005D7 /* SceneDelegate.swift in Sources */,
 				FA9311BE24AF8AFD0057557D /* ApplicationFlowCoordinator.swift in Sources */,
-				FA1344572512A638006848AC /* UILockable.swift in Sources */,
 				FA6E247124B24221009F7A91 /* BasicViewController.swift in Sources */,
 				FA9DF11F2523C364007A995A /* BookListRequest.swift in Sources */,
 				FA40C3F325509D86001288A6 /* LocalImageProvider.swift in Sources */,
@@ -626,7 +626,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -680,7 +680,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -696,7 +696,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "book-browser/Support/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -714,7 +713,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "book-browser/Support/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -733,7 +731,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "book-browserTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -754,7 +751,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "book-browserTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

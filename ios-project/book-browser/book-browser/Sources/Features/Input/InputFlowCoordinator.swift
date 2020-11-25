@@ -16,6 +16,7 @@ final class InputFlowCoordinator: FlowCoordinator {
     weak var parentController: UINavigationController?
     private var viewController: UIViewController?
     
+    /// Handler called when flow is completed with optional `String` result
     var onInputDone: ((String?) -> ())?
     
     init(parentController: UINavigationController) {
@@ -30,9 +31,11 @@ final class InputFlowCoordinator: FlowCoordinator {
         model.onTextViewDone = { (text: String?) in
             self.onInputDone?(text)
         }
+        
         let view = InputView(viewModel: model)
         let controller = BasicViewController(view: view)
         controller.modalPresentationStyle = .fullScreen
+        
         self.parentController?.pushViewController(controller, animated: true)
         self.viewController = controller
         self.viewController?.navigationItem.title = "Input"
