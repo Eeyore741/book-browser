@@ -15,14 +15,14 @@ final class BookCell: UITableViewCell {
     
     lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.numberOfLines = 2
+        view.numberOfLines = 3
         view.textColor = UIColor.darkGray
         return view
     }()
     
     lazy var authorLabel: UILabel = {
         let view = UILabel()
-        view.numberOfLines = 1
+        view.numberOfLines = 3
         view.textColor = UIColor.lightGray
         return view
     }()
@@ -31,7 +31,6 @@ final class BookCell: UITableViewCell {
         let view = UIImageView()
         view.clipsToBounds = true
         view.contentMode = UIView.ContentMode.scaleAspectFill
-        view.backgroundColor = .green
         return view
     }()
     
@@ -53,15 +52,22 @@ final class BookCell: UITableViewCell {
             self.coverView.heightAnchor.constraint(equalToConstant: Layout.coverViewSide),
             self.coverView.centerYAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.centerYAnchor),
             self.coverView.leadingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.leadingAnchor),
-            self.coverView.topAnchor.constraint(equalToSystemSpacingBelow: self.contentView.topAnchor, multiplier: 1.0),
             self.titleLabel.topAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.topAnchor),
             self.titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: self.coverView.layoutMarginsGuide.trailingAnchor, multiplier: 2.0),
             self.titleLabel.trailingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.trailingAnchor),
             self.authorLabel.topAnchor.constraint(equalTo: self.titleLabel.layoutMarginsGuide.bottomAnchor, constant: Layout.authorLabelTopInset),
-            self.authorLabel.leadingAnchor.constraint(equalTo: self.coverView.safeAreaLayoutGuide.trailingAnchor),
+            self.authorLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: self.coverView.layoutMarginsGuide.trailingAnchor, multiplier: 2.0),
             self.authorLabel.trailingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.trailingAnchor),
             self.authorLabel.bottomAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.bottomAnchor)
         ])
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.titleLabel.text = nil
+        self.authorLabel.text = nil
+        self.coverView.image = nil
     }
 }
 
