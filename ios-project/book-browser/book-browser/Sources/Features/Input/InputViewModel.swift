@@ -12,9 +12,9 @@ import UIKit
 final class InputViewModel {
     
     // Setup
-    var backgroundColor: (() -> (UIColor)) = { UIColor.systemGray4 }
-    var textBackgroundColor: (() -> (UIColor)) = { UIColor.lightText }
-    var textColor: (() -> (UIColor)) = { UIColor.darkGray }
+    var backgroundColor: UIColor = UIColor.darkGray
+    var textBackgroundColor: UIColor = UIColor.darkGray
+    var textColor: UIColor = UIColor.darkGray
     
     // Callbacks
     var onTextViewDone: ((String?) -> ()) = { _ in }

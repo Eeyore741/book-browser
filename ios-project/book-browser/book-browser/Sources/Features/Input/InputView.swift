@@ -32,12 +32,12 @@ final class InputView: UIView {
     override func layoutSubviews() {
         if self.subviewsLayoutOnce == false {
             self.subviewsLayoutOnce = true
-            self.backgroundColor = self.viewModel.backgroundColor()
+            self.backgroundColor = self.viewModel.backgroundColor
             
-            self.textField.textColor = self.viewModel.textColor()
+            self.textField.textColor = self.viewModel.textColor
             self.textField.borderStyle = UITextField.BorderStyle.roundedRect
             self.textField.clearButtonMode = UITextField.ViewMode.always
-            self.textField.backgroundColor = self.viewModel.textBackgroundColor()
+            self.textField.backgroundColor = self.viewModel.textBackgroundColor
             self.textField.returnKeyType = UIReturnKeyType.done
             self.textField.addTarget(self, action: #selector(InputView.onTextEditDone), for: UIControl.Event.editingDidEndOnExit)
             self.addSubview(textField)
