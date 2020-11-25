@@ -67,7 +67,7 @@ final class BookCell: UITableViewCell {
         
         self.titleLabel.text = nil
         self.authorLabel.text = nil
-        self.coverView.image = nil
+        self.coverView.image = UIImage.init(named: "book")
     }
 }
 
