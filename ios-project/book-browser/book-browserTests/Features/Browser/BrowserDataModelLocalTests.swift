@@ -14,7 +14,7 @@ final class BrowserDataModelLocalTests: XCTestCase {
     
     /// Test for models fetch function expected to succeed
     func testFetchFine() {
-        let expectation = XCTestExpectation(description: "Wait for sut0.fetch completion")
+        let expectation = self.expectation(description: "Wait for sut0.fetch completion")
         let sut0 = BrowserDataModelLocal()
         let delegate = DummyBrowserDataModelDelegate()
         sut0.delegate = delegate
@@ -25,7 +25,7 @@ final class BrowserDataModelLocalTests: XCTestCase {
             }
         }
         sut0.fetch(query: "any")
-        self.wait(for: [expectation], timeout: 0.1)
+        self.waitForExpectations(timeout: 0.1)
     }
     
     /// Test for data to be instantiated from helper static string

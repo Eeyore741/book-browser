@@ -45,6 +45,7 @@
 		FABE89E524EB122A0012D9C6 /* BrowserDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE89E424EB122A0012D9C6 /* BrowserDataError.swift */; };
 		FABE89E724EB12920012D9C6 /* BrowserDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE89E624EB12920012D9C6 /* BrowserDataResult.swift */; };
 		FAFD02EB257560650001F4BB /* InputViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD02EA257560650001F4BB /* InputViewModelTests.swift */; };
+		FAFD02EE257567690001F4BB /* BookListRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD02ED257567690001F4BB /* BookListRequestTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		FABE89E424EB122A0012D9C6 /* BrowserDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataError.swift; sourceTree = "<group>"; };
 		FABE89E624EB12920012D9C6 /* BrowserDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataResult.swift; sourceTree = "<group>"; };
 		FAFD02EA257560650001F4BB /* InputViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModelTests.swift; sourceTree = "<group>"; };
+		FAFD02ED257567690001F4BB /* BookListRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRequestTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,8 +322,7 @@
 		FA9311BC24AF87540057557D /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				FA3730E424EC64B80091AEA0 /* BrowserDataModelLocalTests.swift */,
-				FA4BBCAE24F02C7100957A34 /* BrowserDataBookTests.swift */,
+				FAFD02EC257567180001F4BB /* Browser */,
 				FAFD02E9257560270001F4BB /* Input */,
 			);
 			path = Features;
@@ -376,6 +377,16 @@
 				FAFD02EA257560650001F4BB /* InputViewModelTests.swift */,
 			);
 			path = Input;
+			sourceTree = "<group>";
+		};
+		FAFD02EC257567180001F4BB /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				FA3730E424EC64B80091AEA0 /* BrowserDataModelLocalTests.swift */,
+				FA4BBCAE24F02C7100957A34 /* BrowserDataBookTests.swift */,
+				FAFD02ED257567690001F4BB /* BookListRequestTests.swift */,
+			);
+			path = Browser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -549,6 +560,7 @@
 				FA4BBCAF24F02C7100957A34 /* BrowserDataBookTests.swift in Sources */,
 				FA3730E524EC64B80091AEA0 /* BrowserDataModelLocalTests.swift in Sources */,
 				FAFD02EB257560650001F4BB /* InputViewModelTests.swift in Sources */,
+				FAFD02EE257567690001F4BB /* BookListRequestTests.swift in Sources */,
 				FA6B880F24AF7F2D007005D7 /* book_browserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

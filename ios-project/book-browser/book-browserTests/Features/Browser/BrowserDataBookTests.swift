@@ -21,12 +21,14 @@ final class BrowserDataBookTests: XCTestCase {
         
         XCTAssertEqual(sut0.id, "any id")
         XCTAssertEqual(sut0.title, "any title")
-        XCTAssertEqual(sut0.author, "any author")
-        XCTAssertEqual(sut0.imageURL, "anyLink")
+        XCTAssertFalse(try XCTUnwrap(sut0.authors).isEmpty)
+//        XCTAssertEqual(sut0.imageURL, "anyLink")
     }
     
     func testEncoding() throws {
-        let sut0 = BrowserDataBook(id: "any id", author: "any author", title: "any title", imageURL: "anyLink")
+        let author = Author(name: "any name")
+        let cover = Cover(url: "any link")
+        let sut0 = BrowserDataBook(id: "any id", authors: [author], title: "any title", cover: cover)
         
         let sut1: Data = try self.encoder.encode(sut0)
         let sut2: String = try XCTUnwrap(String(data: sut1, encoding: String.Encoding.utf8))
@@ -39,7 +41,7 @@ private extension BrowserDataBookTests {
     
     static var bookJSON: String {
         """
-        {"id":"any id","author":"any author","title":"any title","imageURL":"anyLink"}
+        {"id":"any id","title":"any title","authors":[{"name":"any name"}],"cover":{"url":"any link"}}
         """
     }
 }
