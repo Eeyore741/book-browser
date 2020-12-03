@@ -30,8 +30,8 @@ final class BrowserViewModel {
     
     // Data
     private var dataModel: BrowserDataModel
-    private var books: [BrowserDataBook] = [BrowserDataBook]()
     private var imageProvider: ImageProvider
+    private var books: [BrowserDataBook] = [BrowserDataBook]()
     
     // Appearance
     var backgroundColor: UIColor = UIColor.white

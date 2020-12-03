@@ -12,7 +12,7 @@ import Foundation
 enum BrowserViewModelState {
     
     case inactive // Ready for user interaction
-    case locked // user interaction disabled
+    case locked // User interaction disabled
     case active // Activity state unavailable for user interaction
     case alert(message: String) // Modal alert presenting state waiting for user decision
 }
