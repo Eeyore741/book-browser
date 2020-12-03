@@ -10,6 +10,7 @@
 		FA13F9EA24AF8F9E0071FE18 /* InputFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */; };
 		FA13F9EC24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */; };
 		FA23283D25587D6A00C0CBDD /* RemoteImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23283C25587D6A00C0CBDD /* RemoteImageProvider.swift */; };
+		FA2F49C4257975DB00E430CC /* DummyImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F49C3257975DB00E430CC /* DummyImageProvider.swift */; };
 		FA2F49C62579772900E430CC /* test-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2F49C52579772900E430CC /* test-pic.png */; };
 		FA2FBFC82505628B006AC8EF /* UILoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FBFC72505628B006AC8EF /* UILoadable.swift */; };
 		FA3730E124EB1A0D0091AEA0 /* BrowserDataModelLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3730E024EB1A0D0091AEA0 /* BrowserDataModelLocal.swift */; };
@@ -26,7 +27,6 @@
 		FA6B87FA24AF7F2B007005D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B87F924AF7F2B007005D7 /* SceneDelegate.swift */; };
 		FA6B880124AF7F2D007005D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6B880024AF7F2D007005D7 /* Assets.xcassets */; };
 		FA6B880424AF7F2D007005D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6B880224AF7F2D007005D7 /* LaunchScreen.storyboard */; };
-		FA6B880F24AF7F2D007005D7 /* book_browserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B880E24AF7F2D007005D7 /* book_browserTests.swift */; };
 		FA6B881A24AF7F2D007005D7 /* book_browserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B881924AF7F2D007005D7 /* book_browserUITests.swift */; };
 		FA6E246B24B235E4009F7A91 /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E246A24B235E4009F7A91 /* InputViewModel.swift */; };
 		FA6E246F24B239A3009F7A91 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E246E24B239A3009F7A91 /* InputView.swift */; };
@@ -70,6 +70,7 @@
 		FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA23283C25587D6A00C0CBDD /* RemoteImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageProvider.swift; sourceTree = "<group>"; };
+		FA2F49C3257975DB00E430CC /* DummyImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyImageProvider.swift; sourceTree = "<group>"; };
 		FA2F49C52579772900E430CC /* test-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test-pic.png"; sourceTree = "<group>"; };
 		FA2FBFC72505628B006AC8EF /* UILoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoadable.swift; sourceTree = "<group>"; };
 		FA3730E024EB1A0D0091AEA0 /* BrowserDataModelLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataModelLocal.swift; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		FA6B880324AF7F2D007005D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA6B880524AF7F2D007005D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA6B880A24AF7F2D007005D7 /* book-browserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "book-browserTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA6B880E24AF7F2D007005D7 /* book_browserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = book_browserTests.swift; sourceTree = "<group>"; };
 		FA6B881024AF7F2D007005D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA6B881524AF7F2D007005D7 /* book-browserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "book-browserUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6B881924AF7F2D007005D7 /* book_browserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = book_browserUITests.swift; sourceTree = "<group>"; };
@@ -259,7 +259,6 @@
 				FABA084E254375C60091D35A /* Mock */,
 				FA9311BB24AF874B0057557D /* Root */,
 				FA9311BC24AF87540057557D /* Features */,
-				FA6B880E24AF7F2D007005D7 /* book_browserTests.swift */,
 				FA6B881024AF7F2D007005D7 /* Info.plist */,
 				FA2F49C52579772900E430CC /* test-pic.png */,
 			);
@@ -344,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				FABA084F254375E30091D35A /* DummyBrowserDataModelDelegate.swift */,
+				FA2F49C3257975DB00E430CC /* DummyImageProvider.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -416,9 +416,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA6B882124AF7F2D007005D7 /* Build configuration list for PBXNativeTarget "book-browserTests" */;
 			buildPhases = (
+				FA6B880824AF7F2D007005D7 /* Resources */,
 				FA6B880624AF7F2D007005D7 /* Sources */,
 				FA6B880724AF7F2D007005D7 /* Frameworks */,
-				FA6B880824AF7F2D007005D7 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -565,7 +565,6 @@
 				FA3730E524EC64B80091AEA0 /* BrowserDataModelLocalTests.swift in Sources */,
 				FAFD02EB257560650001F4BB /* InputViewModelTests.swift in Sources */,
 				FAFD02EE257567690001F4BB /* BookListRequestTests.swift in Sources */,
-				FA6B880F24AF7F2D007005D7 /* book_browserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
