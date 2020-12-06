@@ -26,7 +26,9 @@ extension BrowserDataModelState: Equatable {
         case let (.error(lhsError), .error(rhsError)):
             return lhsError == rhsError
         case let (.inactive(lhsAttributes), .inactive(rhsAttributes)):
-            return lhsAttributes?.query == rhsAttributes?.query && lhsAttributes?.books == rhsAttributes?.books && lhsAttributes?.nextPageToken == rhsAttributes?.nextPageToken
+            return lhsAttributes?.query == rhsAttributes?.query
+                && lhsAttributes?.books == rhsAttributes?.books
+                && lhsAttributes?.nextPageToken == rhsAttributes?.nextPageToken
         default:
             return false
         }
