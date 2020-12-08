@@ -12,7 +12,13 @@ import XCTest
 class BookListRequestTests: XCTestCase {
 
     func testInit() throws {
-        let sut0 = try BookListRequest(query: "q", page: "p")
+        let sut0 = try BookListRequest(query: "query", page: "page")
+        XCTAssertEqual(sut0.query, "query")
+        XCTAssertEqual(sut0.page, "page")
         
+        let testUrl = try XCTUnwrap(URL(string: "https://api.storytel.net/search?query=query&page=page"))
+        let testRequest = URLRequest(url: testUrl, cachePolicy: URLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 2)
+        
+        XCTAssertEqual(sut0.request, testRequest)
     }
 }
