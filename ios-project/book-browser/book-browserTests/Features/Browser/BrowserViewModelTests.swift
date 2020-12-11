@@ -49,7 +49,7 @@ class BrowserViewModelTests: XCTestCase {
             expectation.fulfill()
         }
         sut0.state = BrowserViewModelState.inactive
-        self.waitForExpectations(timeout: 0.1)
+        self.waitForExpectations(timeout: 0.15)
         
         expectation = self.expectation(description: "Expect view model to trigger state update on delegate")
         expectation.isInverted = false
@@ -57,7 +57,7 @@ class BrowserViewModelTests: XCTestCase {
             expectation.fulfill()
         }
         sut0.state = BrowserViewModelState.active
-        self.waitForExpectations(timeout: 0.1)
+        self.waitForExpectations(timeout: 0.15)
         
         expectation = self.expectation(description: "Expect view model to trigger state update on delegate")
         expectation.isInverted = false
@@ -65,7 +65,7 @@ class BrowserViewModelTests: XCTestCase {
             expectation.fulfill()
         }
         sut0.state = BrowserViewModelState.alert(message: "any")
-        self.waitForExpectations(timeout: 0.1)
+        self.waitForExpectations(timeout: 0.15)
         
         expectation = self.expectation(description: "Expect view model to trigger state update on delegate")
         expectation.isInverted = false
@@ -73,7 +73,7 @@ class BrowserViewModelTests: XCTestCase {
             expectation.fulfill()
         }
         sut0.state = BrowserViewModelState.locked
-        self.waitForExpectations(timeout: 0.1)
+        self.waitForExpectations(timeout: 0.15)
     }
     
     func testMiscInterface() {
@@ -101,7 +101,7 @@ class BrowserViewModelTests: XCTestCase {
             expectation.fulfill()
         }
         sut0.onAlertClick()
-        self.waitForExpectations(timeout: 0.1)
+        self.waitForExpectations(timeout: 0.15)
         
         dataModel.changeState(BrowserDataModelState.inactive(attributes: (nil, [BrowserDataBook](), "any")))
     }
@@ -137,7 +137,7 @@ class BrowserViewModelTests: XCTestCase {
         try sut0.fillCell(cell, withModelAtIndex: 0)
         
         self.expectation(description: "Wait a bit").isInverted = true
-        self.waitForExpectations(timeout: 0.1)
+        self.waitForExpectations(timeout: 0.15)
         
         XCTAssertEqual(cell.authorLabel.text, "By Foo Bar John Doe ")
         XCTAssertEqual(cell.titleLabel.text, "Any Book")

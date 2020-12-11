@@ -27,8 +27,8 @@ final class BrowserFlowCoordinator: FlowCoordinator {
     }
     
     public func start() {
-        let imageProvider = RemoteImageProvider(session: URLSession.shared)
-        let dataModel = BrowserDataModelRemote()
+        let imageProvider = RemoteImageProvider(urlSession: URLSession.shared)
+        let dataModel = BrowserDataModelRemote(urlSession: URLSession.shared)
         let viewModel = BrowserViewModel(dataModel: dataModel, imageProvider: imageProvider)
         viewModel.searchText = self.query
         let view = BrowserView(viewModel: viewModel)

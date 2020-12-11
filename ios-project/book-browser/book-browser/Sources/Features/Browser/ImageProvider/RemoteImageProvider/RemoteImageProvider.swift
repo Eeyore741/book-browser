@@ -13,15 +13,15 @@ import UIKit
 /// Does not hold strog reference on `UIImageView` instances
 final class RemoteImageProvider {
     
-    let session: URLSession
+    let urlSession: URLSession
     
     private let imageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
     private let taskCache: NSMapTable<UIImageView, URLSessionDataTask> = NSMapTable<UIImageView, URLSessionDataTask>()
     
     /// Instantiate type with injection of `URLSession`
     /// - Parameter session: `URLSession` sessions sintance to handle data tasks
-    init(session: URLSession) {
-        self.session = session
+    init(urlSession: URLSession) {
+        self.urlSession = urlSession
     }
     
     func cachedImage(forUrl url: URL) -> UIImage? {
@@ -42,7 +42,7 @@ final class RemoteImageProvider {
     
     func remoteDataTaskForImageView(_ imageView: UIImageView, withUrl url: URL) -> URLSessionDataTask {
         let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 3)
-        let task = self.session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+        let task = self.urlSession.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             
             if let data = data as Data?, let image = UIImage(data: data) {
                 self.cacheImage(image, forUrl: url)

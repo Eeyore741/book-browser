@@ -12,6 +12,8 @@ import Foundation
 /// example: "https://api.storytel.net/search?query=harry&page=10."
 final class BrowserDataModelRemote {
     
+    let urlSession: URLSession
+    
     var state: BrowserDataModelState = .inactive(attributes: nil) {
         didSet {
             guard self.state != oldValue else { return }
@@ -20,16 +22,19 @@ final class BrowserDataModelRemote {
     }
     
     weak var delegate: BrowserDataModelDelegate?
+    
+    init(urlSession: URLSession = .shared) {
+        self.urlSession = urlSession
+    }
 }
 
 extension BrowserDataModelRemote: BrowserDataModel {
     
     func fetch(query: String?) {
         if case BrowserDataModelState.error(_) = self.state { self.state = BrowserDataModelState.inactive(attributes: nil) }
-        let session = URLSession.shared
         do {
             let bookListRequest = try BookListRequest(withBrowserDataModelState: self.state, andQuery: query)
-            session.dataTask(with: bookListRequest.request) { (data: Data?, response: URLResponse?, error: Error?) in
+            self.urlSession.dataTask(with: bookListRequest.request) { (data: Data?, response: URLResponse?, error: Error?) in
                 guard let data = data else {
                     return self.state = BrowserDataModelState.error(error: BrowserDataError.fetch)
                 }
