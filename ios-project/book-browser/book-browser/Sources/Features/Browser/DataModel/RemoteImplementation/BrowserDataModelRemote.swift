@@ -35,7 +35,7 @@ extension BrowserDataModelRemote: BrowserDataModel {
         do {
             let bookListRequest = try BookListRequest(withBrowserDataModelState: self.state, andQuery: query)
             self.urlSession.dataTask(with: bookListRequest.request) { (data: Data?, response: URLResponse?, error: Error?) in
-                guard let data = data else {
+                guard let data = data, error == nil else {
                     return self.state = BrowserDataModelState.error(error: BrowserDataError.fetch)
                 }
                 do {
