@@ -23,6 +23,11 @@ final class BrowserDataModelRemote {
     
     weak var delegate: BrowserDataModelDelegate?
     
+    /// Injecting throwable logic via closure to be able to mock it
+    var bookListRequestProvider: (BrowserDataModelState, String?) throws -> BookListRequest = {
+        try BookListRequest(withBrowserDataModelState: $0, andQuery: $1)
+    }
+    
     init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
     }
@@ -33,7 +38,7 @@ extension BrowserDataModelRemote: BrowserDataModel {
     func fetch(query: String?) {
         if case BrowserDataModelState.error(_) = self.state { self.state = BrowserDataModelState.inactive(attributes: nil) }
         do {
-            let bookListRequest = try BookListRequest(withBrowserDataModelState: self.state, andQuery: query)
+            let bookListRequest = try self.bookListRequestProvider(self.state, query)
             self.urlSession.dataTask(with: bookListRequest.request) { (data: Data?, response: URLResponse?, error: Error?) in
                 guard let data = data, error == nil else {
                     return self.state = BrowserDataModelState.error(error: BrowserDataError.fetch)
