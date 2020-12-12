@@ -48,6 +48,7 @@
 		FABE89E524EB122A0012D9C6 /* BrowserDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABE89E424EB122A0012D9C6 /* BrowserDataError.swift */; };
 		FAE67CDC25800C6D00BF0A8C /* BookListResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE67CDB25800C6D00BF0A8C /* BookListResponseTests.swift */; };
 		FAE67CE025842FD900BF0A8C /* DummyURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE67CDF25842FD900BF0A8C /* DummyURLSessionDataTask.swift */; };
+		FAE67CE22584301300BF0A8C /* DummyUrlSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE67CE12584301300BF0A8C /* DummyUrlSession.swift */; };
 		FAFD02EB257560650001F4BB /* InputViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD02EA257560650001F4BB /* InputViewModelTests.swift */; };
 		FAFD02EE257567690001F4BB /* BookListRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD02ED257567690001F4BB /* BookListRequestTests.swift */; };
 /* End PBXBuildFile section */
@@ -117,6 +118,7 @@
 		FABE89E424EB122A0012D9C6 /* BrowserDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataError.swift; sourceTree = "<group>"; };
 		FAE67CDB25800C6D00BF0A8C /* BookListResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListResponseTests.swift; sourceTree = "<group>"; };
 		FAE67CDF25842FD900BF0A8C /* DummyURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyURLSessionDataTask.swift; sourceTree = "<group>"; };
+		FAE67CE12584301300BF0A8C /* DummyUrlSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyUrlSession.swift; sourceTree = "<group>"; };
 		FAFD02EA257560650001F4BB /* InputViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModelTests.swift; sourceTree = "<group>"; };
 		FAFD02ED257567690001F4BB /* BookListRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRequestTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -353,6 +355,7 @@
 				FA2F49C3257975DB00E430CC /* DummyImageProvider.swift */,
 				FA2F49C725797D5200E430CC /* DummyBrowserViewModelDelegate.swift */,
 				FAE67CDF25842FD900BF0A8C /* DummyURLSessionDataTask.swift */,
+				FAE67CE12584301300BF0A8C /* DummyUrlSession.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				FABA0850254375E30091D35A /* DummyBrowserDataModelDelegate.swift in Sources */,
 				FA2F49C4257975DB00E430CC /* DummyImageProvider.swift in Sources */,
 				FA2F49C22579739500E430CC /* DummyBrowserDataModel.swift in Sources */,
+				FAE67CE22584301300BF0A8C /* DummyUrlSession.swift in Sources */,
 				FAE67CDC25800C6D00BF0A8C /* BookListResponseTests.swift in Sources */,
 				FA2F49C825797D5200E430CC /* DummyBrowserViewModelDelegate.swift in Sources */,
 				FA2F49C02579733900E430CC /* BrowserViewModelTests.swift in Sources */,
