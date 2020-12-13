@@ -51,6 +51,7 @@
 		FAE67CE025842FD900BF0A8C /* DummyURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE67CDF25842FD900BF0A8C /* DummyURLSessionDataTask.swift */; };
 		FAE67CE22584301300BF0A8C /* DummyUrlSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE67CE12584301300BF0A8C /* DummyUrlSession.swift */; };
 		FAE67CE72586261A00BF0A8C /* LocalImageProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE67CE62586261A00BF0A8C /* LocalImageProviderTests.swift */; };
+		FAE67CE9258628DA00BF0A8C /* RemoteImageProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE67CE8258628DA00BF0A8C /* RemoteImageProviderTests.swift */; };
 		FAFD02EB257560650001F4BB /* InputViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD02EA257560650001F4BB /* InputViewModelTests.swift */; };
 		FAFD02EE257567690001F4BB /* BookListRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD02ED257567690001F4BB /* BookListRequestTests.swift */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,7 @@
 		FAE67CDF25842FD900BF0A8C /* DummyURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyURLSessionDataTask.swift; sourceTree = "<group>"; };
 		FAE67CE12584301300BF0A8C /* DummyUrlSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyUrlSession.swift; sourceTree = "<group>"; };
 		FAE67CE62586261A00BF0A8C /* LocalImageProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageProviderTests.swift; sourceTree = "<group>"; };
+		FAE67CE8258628DA00BF0A8C /* RemoteImageProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageProviderTests.swift; sourceTree = "<group>"; };
 		FAFD02EA257560650001F4BB /* InputViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModelTests.swift; sourceTree = "<group>"; };
 		FAFD02ED257567690001F4BB /* BookListRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRequestTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -382,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				FAE67CE62586261A00BF0A8C /* LocalImageProviderTests.swift */,
+				FAE67CE8258628DA00BF0A8C /* RemoteImageProviderTests.swift */,
 			);
 			path = ImageProvider;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 			files = (
 				FAE67CE025842FD900BF0A8C /* DummyURLSessionDataTask.swift in Sources */,
 				FABA0850254375E30091D35A /* DummyBrowserDataModelDelegate.swift in Sources */,
+				FAE67CE9258628DA00BF0A8C /* RemoteImageProviderTests.swift in Sources */,
 				FAE67CE72586261A00BF0A8C /* LocalImageProviderTests.swift in Sources */,
 				FA2F49C4257975DB00E430CC /* DummyImageProvider.swift in Sources */,
 				FA2F49C22579739500E430CC /* DummyBrowserDataModel.swift in Sources */,

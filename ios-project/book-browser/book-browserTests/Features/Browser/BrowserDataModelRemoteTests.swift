@@ -72,7 +72,7 @@ class BrowserDataModelRemoteTests: XCTestCase {
         
         sut0.fetch(query: "any")
         self.expectation(description: "Wait a bit").isInverted = true
-        self.waitForExpectations(timeout: 0.25)
+        self.waitForExpectations(timeout: 0.15)
         
         let testBook = BrowserDataBook(id: "any id", authors: [Author(name: "any name")], title: "any title", cover: Cover(url: "any link"))
         let state = BrowserDataModelState.inactive(attributes: (query: "any", books: [testBook], nextPageToken: "10"))
