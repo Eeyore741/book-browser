@@ -55,10 +55,10 @@ final class BrowserViewModel {
     
     func fillCell(_ cell: BookCell, withModelAtIndex index: Int) throws {
         let model = self.books[index]
-        cell.authorLabel.text = model.authorNames 
-        cell.titleLabel.text = model.title
+        cell.bookView.authorLabel.text = model.authorNames
+        cell.bookView.titleLabel.text = model.title
         if let string = model.cover?.url, let url = URL(string: string) {
-            self.imageProvider.fill(imageView: cell.coverView, withImageByUrl: url)
+            self.imageProvider.fill(imageView: cell.bookView.coverView, withImageByUrl: url)
         }
     }
     
