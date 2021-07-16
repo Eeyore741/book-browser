@@ -154,6 +154,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF08420626A07AFD0034090D /* ModernView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModernView;
+			sourceTree = "<group>";
+		};
+		EF08420726A07B4C0034090D /* LegacyView */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E247224B8F7B2009F7A91 /* BrowserView.swift */,
+				FA458C5924F4472300106C40 /* BookCell.swift */,
+			);
+			path = LegacyView;
+			sourceTree = "<group>";
+		};
 		FA13F9E224AF8E8D0071FE18 /* Input */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,8 +239,8 @@
 		FA458C5824F4471000106C40 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FA6E247224B8F7B2009F7A91 /* BrowserView.swift */,
-				FA458C5924F4472300106C40 /* BookCell.swift */,
+				EF08420726A07B4C0034090D /* LegacyView */,
+				EF08420626A07AFD0034090D /* ModernView */,
 			);
 			path = View;
 			sourceTree = "<group>";
