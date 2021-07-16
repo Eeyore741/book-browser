@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF08420926A07BB30034090D /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08420826A07BB30034090D /* BookView.swift */; };
 		FA13F9EA24AF8F9E0071FE18 /* InputFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */; };
 		FA13F9EC24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */; };
 		FA23283D25587D6A00C0CBDD /* RemoteImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23283C25587D6A00C0CBDD /* RemoteImageProvider.swift */; };
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF08420826A07BB30034090D /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		FA13F9E924AF8F9E0071FE18 /* InputFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA13F9EB24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserFlowCoordinator.swift; sourceTree = "<group>"; };
 		FA23283C25587D6A00C0CBDD /* RemoteImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageProvider.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			children = (
 				EF08420726A07B4C0034090D /* LegacyView */,
 				EF08420626A07AFD0034090D /* ModernView */,
+				EF08420826A07BB30034090D /* BookView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				FA40C3F325509D86001288A6 /* LocalImageProvider.swift in Sources */,
 				FA40C3F725509FC9001288A6 /* LocalImageProviderError.swift in Sources */,
 				FA6E246B24B235E4009F7A91 /* InputViewModel.swift in Sources */,
+				EF08420926A07BB30034090D /* BookView.swift in Sources */,
 				FA6E246F24B239A3009F7A91 /* InputView.swift in Sources */,
 				FA9311BA24AF862F0057557D /* FlowCoordinator.swift in Sources */,
 				FA13F9EC24AF8FCC0071FE18 /* BrowserFlowCoordinator.swift in Sources */,
