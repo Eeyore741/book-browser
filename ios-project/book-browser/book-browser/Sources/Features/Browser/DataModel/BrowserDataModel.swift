@@ -9,7 +9,7 @@
 import Foundation
 
 /// Reference type protocol wrapping `BrowserDataModel` callbacks
-protocol BrowserDataModelDelegate: class {
+protocol BrowserDataModelDelegate: AnyObject {
     
     /// Called when view model state changed and new value is different from the old one
     /// - Parameter model: Model instance
