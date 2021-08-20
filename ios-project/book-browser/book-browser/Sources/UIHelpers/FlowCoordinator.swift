@@ -14,7 +14,6 @@ protocol FlowCoordinator: AnyObject {
     var childFlowCoordinators: [FlowCoordinator] { get set }
 }
 
-
 extension FlowCoordinator {
     
     /// Add new flow coordinator as a child for current instance

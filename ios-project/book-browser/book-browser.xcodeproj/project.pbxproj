@@ -271,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				FABA084E254375C60091D35A /* Mock */,
-				FA9311BB24AF874B0057557D /* Root */,
 				FA9311BC24AF87540057557D /* Features */,
 				FA6B881024AF7F2D007005D7 /* Info.plist */,
 				FA2F49C52579772900E430CC /* test-pic.png */,
@@ -324,13 +323,6 @@
 			isa = PBXGroup;
 			children = (
 				FA9311BD24AF8AFD0057557D /* ApplicationFlowCoordinator.swift */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		FA9311BB24AF874B0057557D /* Root */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = Root;
 			sourceTree = "<group>";
