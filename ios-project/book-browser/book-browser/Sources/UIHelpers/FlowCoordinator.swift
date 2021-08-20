@@ -9,7 +9,7 @@
 import Foundation
 
 /// Basic flow coordinator reference type able to contain child flow coordinators
-protocol FlowCoordinator: class {
+protocol FlowCoordinator: AnyObject {
     
     var childFlowCoordinators: [FlowCoordinator] { get set }
 }
