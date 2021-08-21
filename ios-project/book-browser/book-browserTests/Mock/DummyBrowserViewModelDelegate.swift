@@ -15,7 +15,7 @@ final class DummyBrowserViewModelDelegate: BrowserViewModelDelegate {
     var delay: TimeInterval = 0
     
     func viewModelStateChanged(_ model: BrowserViewModel) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+self.delay) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.delay) {
             self.onViewModelStateChanged?()
         }
     }

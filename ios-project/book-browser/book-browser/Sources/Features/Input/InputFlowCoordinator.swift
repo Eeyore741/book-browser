@@ -17,7 +17,7 @@ final class InputFlowCoordinator: FlowCoordinator {
     private var viewController: UIViewController?
     
     /// Handler called when flow is completed with optional `String` result
-    var onInputDone: ((String?) -> ())?
+    var onInputDone: ((String?) -> Void)?
     
     init(parentController: UINavigationController) {
         self.parentController = parentController

@@ -16,8 +16,8 @@ final class BrowserFlowCoordinator: FlowCoordinator {
     weak var parentController: UINavigationController?
     private var viewController: UIViewController?
     
-    var onClose: ((String?) -> ())?
-    var onSelection: ((String?) -> ())?
+    var onClose: ((String?) -> Void)?
+    var onSelection: ((String?) -> Void)?
     
     private var query: String?
     

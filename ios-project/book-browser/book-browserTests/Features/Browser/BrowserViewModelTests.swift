@@ -91,7 +91,6 @@ class BrowserViewModelTests: XCTestCase {
         sut0.searchText = "any"
         XCTAssertEqual(sut0.searchText, "any")
         
-        
         XCTAssertEqual(String(describing: sut0.cellType), "BookCell")
         sut0.cellType = UITableViewCell.self
         XCTAssertEqual(String(describing: sut0.cellType), "UITableViewCell")

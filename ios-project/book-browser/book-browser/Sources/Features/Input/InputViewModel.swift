@@ -17,5 +17,5 @@ final class InputViewModel {
     var textColor: UIColor = UIColor.darkGray
     
     // Callbacks
-    var onTextViewDone: ((String?) -> ()) = { _ in }
+    var onTextViewDone: ((String?) -> Void) = { _ in }
 }

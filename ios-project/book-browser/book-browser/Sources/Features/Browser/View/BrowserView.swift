@@ -100,7 +100,7 @@ extension BrowserView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard tableView === self.tableView else { fatalError("Instance should only be a data source for itself") }
         
-        if self.viewModel.numberOfConsumableItems == indexPath.row+1 {
+        if self.viewModel.numberOfConsumableItems == indexPath.row + 1 {
             self.viewModel.fetch()
         }
         if let cell = tableView.dequeueReusableCell(withIdentifier: self.viewModel.cellType.reuseIdentifier, for: indexPath) as? BookCell {
@@ -161,7 +161,6 @@ private extension BrowserView {
         }
     }
 }
-
 
 /// Conform `BrowserView` so view may react on its UI load event
 extension BrowserView: UILoadable {

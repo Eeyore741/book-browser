@@ -61,7 +61,7 @@ class BrowserDataModelRemoteTests: XCTestCase {
     }
     
     func testFetchFine() {
-        guard let data = String.bookListJson.data(using: String.Encoding.utf8) else { fatalError() }
+        guard let data = String.bookListJson.data(using: String.Encoding.utf8) else { fatalError("Unexpected behaviour") }
         
         let urlSession = DummyUrlSession()
         urlSession.behaviour = .fine(data)

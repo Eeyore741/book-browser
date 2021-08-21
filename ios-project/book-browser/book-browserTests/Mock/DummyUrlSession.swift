@@ -35,5 +35,5 @@ final class DummyUrlSession: URLSession {
     
     var delay: TimeInterval = 1
     
-    var onDataTask: ((URLRequest, (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask) = { _,_ in fatalError() }
+    var onDataTask: ((URLRequest, (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask) = { _,_ in fatalError("Unexpected behaviour") }
 }

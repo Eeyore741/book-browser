@@ -67,7 +67,7 @@ private extension BookListRequest {
     ///   - query: Request query
     /// - Throws: Throws en error if `state` attribute not equal to `inactive` case
     init(withBrowserDataModelState state: BrowserDataModelState, andQuery query: String?) throws {
-        guard case let BrowserDataModelState.inactive(attributes) = state else { fatalError() }
+        guard case let BrowserDataModelState.inactive(attributes) = state else { fatalError("Unexpected behaviour") }
         
         try self.init(query: query, page: attributes?.nextPageToken)
     }
