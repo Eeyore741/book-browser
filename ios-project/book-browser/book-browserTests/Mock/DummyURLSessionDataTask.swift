@@ -16,6 +16,10 @@ final class DummyURLSessionDataTask: URLSessionDataTask {
         }
     }
     
+    override func cancel() {
+        // Empty override due to bug in iOS >= 14
+    }
+    
     /// Dummy helpers
     var delay: TimeInterval = 1
     

@@ -25,7 +25,7 @@ final class BrowserDataModelLocalTests: XCTestCase {
             }
         }
         sut0.fetch(query: "any")
-        self.waitForExpectations(timeout: 0.1)
+        self.waitForExpectations(timeout: 0.25)
     }
     
     /// Test for data to be instantiated from helper static string
