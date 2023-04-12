@@ -17,9 +17,11 @@ GEM
       concurrent-ruby (~> 1.0)
     minitest (5.14.4)
     nanaimo (0.3.0)
-    nokogiri (1.12.3-x86_64-darwin)
+    nokogiri (1.14.3-x86_64-darwin)
       racc (~> 1.4)
-    racc (1.5.2)
+    nokogiri (1.14.3-x86_64-linux)
+      racc (~> 1.4)
+    racc (1.6.2)
     rexml (3.2.5)
     slather (2.7.1)
       CFPropertyList (>= 2.2, < 4)
@@ -40,6 +42,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   slather (~> 2.7)
